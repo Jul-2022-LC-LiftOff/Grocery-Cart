@@ -1,0 +1,38 @@
+Index: shopassitapi/shopassitapi/src/main/java/com/shopassist/shopassitapi/models/GroceryList.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.shopassist.shopassitapi.models;\r\n\r\npublic class GroceryList {\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/shopassitapi/shopassitapi/src/main/java/com/shopassist/shopassitapi/models/GroceryList.java b/shopassitapi/shopassitapi/src/main/java/com/shopassist/shopassitapi/models/GroceryList.java
+--- a/shopassitapi/shopassitapi/src/main/java/com/shopassist/shopassitapi/models/GroceryList.java	(revision 56380e3e4dc13e91d517a3b77828626ca2378ffc)
++++ b/shopassitapi/shopassitapi/src/main/java/com/shopassist/shopassitapi/models/GroceryList.java	(date 1659725198321)
+@@ -1,4 +1,27 @@
+ package com.shopassist.shopassitapi.models;
+ 
++import java.util.ArrayList;
++import java.util.List;
++
+ public class GroceryList {
++
++    //Does this need to be persistant?????... I don't think it is necessary to save the list to a db because the list is temporary and will be reset each time someone does their shopping. I do not think we need the functionality of saving grocery list for the scope of Liftoff/MVP.
++
++    private final List<Ingredient> ingredients = new ArrayList<>();
++
++    public List<Ingredient> getIngredients() {
++        return ingredients;
++    }
++
++    public void addIngredient(Ingredient ingredient) {
++        this.ingredients.add(ingredient);
++    }
++
++    public void deleteIngredient(Ingredient ingredient) {
++        this.ingredients.remove(ingredient);
++    }
++
++    public void deleteAllIngredients() {
++        this.ingredients.clear();
++    }
+ }
