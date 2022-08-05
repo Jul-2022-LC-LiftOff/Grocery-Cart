@@ -1,0 +1,23 @@
+Index: shopassitapi/shopassitapi/src/main/java/com/shopassist/shopassitapi/models/GroceryList.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.shopassist.shopassitapi.models;\r\n\r\nimport java.util.ArrayList;\r\nimport java.util.List;\r\n\r\npublic class GroceryList {\r\n\r\n    //Does this need to be persistant?????... I don't think it is necessary to save the list to a db because the list is temporary and will be reset each time someone does their shopping. I do not think we need the functionality of saving grocery list for the scope of Liftoff/MVP.\r\n\r\n    private final List<Ingredient> ingredients = new ArrayList<>();\r\n\r\n    public List<Ingredient> getIngredients() {\r\n        return ingredients;\r\n    }\r\n\r\n    public void addIngredient(Ingredient ingredient) {\r\n        this.ingredients.add(ingredient);\r\n    }\r\n\r\n    public void deleteIngredient(Ingredient ingredient) {\r\n        this.ingredients.remove(ingredient);\r\n    }\r\n\r\n    public void deleteAllIngredients() {\r\n        this.ingredients.clear();\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/shopassitapi/shopassitapi/src/main/java/com/shopassist/shopassitapi/models/GroceryList.java b/shopassitapi/shopassitapi/src/main/java/com/shopassist/shopassitapi/models/GroceryList.java
+--- a/shopassitapi/shopassitapi/src/main/java/com/shopassist/shopassitapi/models/GroceryList.java	(revision 594fa8957607cf4d74d63fa6102fd8ec2bc939f0)
++++ b/shopassitapi/shopassitapi/src/main/java/com/shopassist/shopassitapi/models/GroceryList.java	(date 1659716634057)
+@@ -1,3 +1,7 @@
++//Blocking out this code for now. Going to focus on the "recipe" feature first
++
++
++/*
+ package com.shopassist.shopassitapi.models;
+ 
+ import java.util.ArrayList;
+@@ -25,3 +29,4 @@
+         this.ingredients.clear();
+     }
+ }
++*/
