@@ -22,6 +22,8 @@ public class Recipe {
     @ManyToMany
     private final List<Step> steps = new ArrayList<>();
 
+    //link to website
+
     public Recipe() {
     }
 

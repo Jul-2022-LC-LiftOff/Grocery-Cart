@@ -1,4 +1,6 @@
+/*
 package com.shopassist.shopassitapi.models;
+
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,3 +27,6 @@ public class GroceryList {
         this.ingredients.clear();
     }
 }
+
+
+ */
