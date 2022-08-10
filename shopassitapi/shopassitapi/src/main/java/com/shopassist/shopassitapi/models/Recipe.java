@@ -22,14 +22,22 @@ public class Recipe {
     @ManyToMany
     private final List<Step> steps = new ArrayList<>();
 
-    //link to website
+    private String link;
 
     public Recipe() {
     }
+    //no-args constructor
 
     public Recipe(String name) {
         this.name = name;
     }
+    //constructor for manual recipe entry
+
+    public Recipe(String name, String link) {
+        this.name = name;
+        this.link = link;
+    }
+    //constructor for recipe imported from website
 
     public String getName() {
         return name;
