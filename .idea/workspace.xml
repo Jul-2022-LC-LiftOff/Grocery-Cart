@@ -1,7 +1,60 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="64400b15-bb51-4a1d-bc96-c7b0437366bd" name="Changes" comment="initial spring api commit" />
+    <list default="true" id="64400b15-bb51-4a1d-bc96-c7b0437366bd" name="Changes" comment="initial spring api commit">
+      <change beforePath="$PROJECT_DIR$/grocery-cart/.browserslistrc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/grocery-cart/.editorconfig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/grocery-cart/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/grocery-cart/.vscode/extensions.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/grocery-cart/.vscode/launch.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/grocery-cart/.vscode/tasks.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/grocery-cart/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/grocery-cart/angular.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/grocery-cart/karma.conf.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/grocery-cart/package-lock.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/grocery-cart/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/grocery-cart/src/app/app-routing.module.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/grocery-cart/src/app/app.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/grocery-cart/src/app/app.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/grocery-cart/src/app/app.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/grocery-cart/src/app/app.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/grocery-cart/src/app/app.module.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/grocery-cart/src/assets/.gitkeep" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/grocery-cart/src/environments/environment.prod.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/grocery-cart/src/environments/environment.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/grocery-cart/src/favicon.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/grocery-cart/src/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/grocery-cart/src/main.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/grocery-cart/src/polyfills.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/grocery-cart/src/styles.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/grocery-cart/src/test.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/grocery-cart/tsconfig.app.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/grocery-cart/tsconfig.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/grocery-cart/tsconfig.spec.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shopassitapi/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shopassitapi/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shopassitapi/.idea/gradle.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shopassitapi/.idea/jarRepositories.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shopassitapi/.idea/jpa-buddy.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shopassitapi/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shopassitapi/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shopassitapi/.idea/shopassitapi.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shopassitapi/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shopassitapi/shopassitapi/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shopassitapi/shopassitapi/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shopassitapi/shopassitapi/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shopassitapi/shopassitapi/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shopassitapi/shopassitapi/gradlew" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shopassitapi/shopassitapi/gradlew.bat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shopassitapi/shopassitapi/settings.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shopassitapi/shopassitapi/src/main/java/com/shopassist/shopassitapi/ShopassitapiApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shopassitapi/shopassitapi/src/main/java/com/shopassist/shopassitapi/models/GroceryList.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shopassitapi/shopassitapi/src/main/java/com/shopassist/shopassitapi/models/Ingredient.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shopassitapi/shopassitapi/src/main/java/com/shopassist/shopassitapi/models/Recipe.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shopassitapi/shopassitapi/src/main/java/com/shopassist/shopassitapi/models/Step.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shopassitapi/shopassitapi/src/main/resources/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shopassitapi/shopassitapi/src/test/java/com/shopassist/shopassitapi/ShopassitapiApplicationTests.java" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
