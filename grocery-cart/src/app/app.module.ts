@@ -8,6 +8,7 @@ import { RecipeComponent } from './recipe/recipe.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { IngredientComponent } from './ingredient/ingredient.component';
 import { StepComponent } from './step/step.component';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { StepComponent } from './step/step.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NgbModule
+    NgbModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
