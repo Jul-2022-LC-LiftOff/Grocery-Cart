@@ -12,8 +12,10 @@ public class RecipeController {
     @Autowired
     private RecipeRepository recipeRepository;
 
-    //@GetMapping("recipes")
-    //getRecipes
+    @GetMapping("recipes")
+    public Iterable<Recipe> getRecipes() {
+        return recipeRepository.findAll();
+    }
 
     @PostMapping("recipes/addnew")
     public void addRecipe(@RequestBody Recipe recipe) {
