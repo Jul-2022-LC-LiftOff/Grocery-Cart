@@ -25,6 +25,10 @@ public class Step {
         this.step = step;
     }
 
+    public Integer getId() {
+        return id;
+    }
+
     public String getStep() {
         return step;
     }

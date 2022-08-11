@@ -5,6 +5,8 @@ import com.shopassist.shopassitapi.models.Recipe;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @CrossOrigin
 @RestController
 public class RecipeController {
@@ -13,7 +15,7 @@ public class RecipeController {
     private RecipeRepository recipeRepository;
 
     @GetMapping("recipes")
-    public Iterable<Recipe> getRecipes() {
+    public List<Recipe> getRecipes() {
         return recipeRepository.findAll();
     }
 

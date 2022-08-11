@@ -38,6 +38,11 @@ public class Recipe {
     }
     //constructor for recipe imported from website
 
+
+    public Integer getId() {
+        return id;
+    }
+
     public String getName() {
         return name;
     }
@@ -60,6 +65,14 @@ public class Recipe {
 
     public void addStep(Step step) {
         this.steps.add(step);
+    }
+
+    public String getLink() {
+        return link;
+    }
+
+    public void setLink(String link) {
+        this.link = link;
     }
 
     //need toString and equals/hashCode
