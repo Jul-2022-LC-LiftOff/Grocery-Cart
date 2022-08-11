@@ -9,7 +9,7 @@ public class Step {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Integer id;
 
     private String step;
     //this will be the written out description of the step, such as "put in oven for 45 minutes"
@@ -20,7 +20,8 @@ public class Step {
     public Step() {
     }
 
-    public Step(String step) {
+    public Step(Integer id, String step) {
+        this.id = id;
         this.step = step;
     }
 

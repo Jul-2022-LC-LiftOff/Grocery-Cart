@@ -9,7 +9,7 @@ public class Recipe {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Integer id;
 
     private String name;
 
@@ -25,12 +25,14 @@ public class Recipe {
     }
     //no-args constructor
 
-    public Recipe(String name) {
+    public Recipe(Integer id, String name) {
+        this.id = id;
         this.name = name;
     }
     //constructor for manual recipe entry
 
-    public Recipe(String name, String link) {
+    public Recipe(Integer id, String name, String link) {
+        this.id = id;
         this.name = name;
         this.link = link;
     }
