@@ -8,21 +8,13 @@
     <table class="table table-bordered table-striped">
       <thead>
       <tr>
-        <th>ID</th>
-        <th>Name</th>
-        <th>Ingredients</th>
-        <th>Steps</th>
-        <th>Link</th>
+        <th>Recipe Name</th>
         <th>Action</th>
       </tr>
       </thead>
       <tbody>
       <tr *ngFor="let recipe of recipes">
-        <td><span>{{recipe.id}}</span></td>
         <td><span>{{recipe.name}}</span></td>
-        <td><span>{{recipe.ingredients}}</span></td>
-        <td><span>{{recipe.steps}}</span></td>
-        <td><span>{{recipe.link}}</span></td>
         <td>
           <button class="btn btn-sm btn-info">
             <i class="fa fa-search"></i>Details</button>
