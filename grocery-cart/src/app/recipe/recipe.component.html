@@ -1,0 +1,40 @@
+<h1>Recipes</h1>
+<br><br>
+<div>
+    <button (click)="open(content)">New Recipe</button>
+</div>
+<br><br>
+<div class="container">
+    <table class="table table-bordered table-striped">
+      <thead>
+      <tr>
+        <th>Recipe Name</th>
+        <th>Action</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let recipe of recipes">
+        <td><span>{{recipe.name}}</span></td>
+        <td>
+          <button class="btn btn-sm btn-info">
+            <i class="fa fa-search"></i>Details</button>
+          <button class="btn btn-sm btn-warning">
+            <i class="fa fa-edit"></i>Edit</button>
+          <button class="btn btn-sm btn-danger">
+            <i class="fa fa-remove"></i>Delete</button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <ng-template #content let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">What type of recipe would you like to add:</h4>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <button>Personal/Manual Recipe</button>
+    <button>Import Recipe from Website</button>
+  </ng-template>

@@ -1,9 +1,6 @@
 package com.shopassist.shopassitapi.models;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.ManyToMany;
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,8 +8,8 @@ import java.util.List;
 public class Step {
 
     @Id
-    @GeneratedValue
-    private int id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
 
     private String step;
     //this will be the written out description of the step, such as "put in oven for 45 minutes"
@@ -23,8 +20,13 @@ public class Step {
     public Step() {
     }
 
-    public Step(String step) {
+    public Step(Integer id, String step) {
+        this.id = id;
         this.step = step;
+    }
+
+    public Integer getId() {
+        return id;
     }
 
     public String getStep() {

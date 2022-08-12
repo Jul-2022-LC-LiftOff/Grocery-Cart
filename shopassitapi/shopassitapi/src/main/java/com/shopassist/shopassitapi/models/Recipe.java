@@ -1,9 +1,6 @@
 package com.shopassist.shopassitapi.models;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.ManyToMany;
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,8 +8,8 @@ import java.util.List;
 public class Recipe {
 
     @Id
-    @GeneratedValue
-    private int id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
 
     private String name;
 
@@ -28,16 +25,23 @@ public class Recipe {
     }
     //no-args constructor
 
-    public Recipe(String name) {
+    public Recipe(Integer id, String name) {
+        this.id = id;
         this.name = name;
     }
     //constructor for manual recipe entry
 
-    public Recipe(String name, String link) {
+    public Recipe(Integer id, String name, String link) {
+        this.id = id;
         this.name = name;
         this.link = link;
     }
     //constructor for recipe imported from website
+
+
+    public Integer getId() {
+        return id;
+    }
 
     public String getName() {
         return name;
@@ -61,6 +65,14 @@ public class Recipe {
 
     public void addStep(Step step) {
         this.steps.add(step);
+    }
+
+    public String getLink() {
+        return link;
+    }
+
+    public void setLink(String link) {
+        this.link = link;
     }
 
     //need toString and equals/hashCode

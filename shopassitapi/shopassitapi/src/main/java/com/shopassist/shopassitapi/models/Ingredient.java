@@ -8,12 +8,10 @@ import java.util.List;
 public class Ingredient {
 
     @Id
-    @GeneratedValue
-    private int id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
 
     private String name;
-
-    private String category;
 
     @ManyToMany(mappedBy = "ingredients")
     private final List<Recipe> recipes = new ArrayList<>();
@@ -21,9 +19,13 @@ public class Ingredient {
     public Ingredient() {
     }
 
-    public Ingredient(String name, String category) {
+    public Ingredient(Integer id, String name) {
+        this.id = id;
         this.name = name;
-        this.category = category;
+    }
+
+    public Integer getId() {
+        return id;
     }
 
     public String getName() {
@@ -34,13 +36,6 @@ public class Ingredient {
         this.name = name;
     }
 
-    public String getCategory() {
-        return category;
-    }
-
-    public void setCategory(String category) {
-        this.category = category;
-    }
 
     public List<Recipe> getRecipes() {
         return recipes;
