@@ -14,7 +14,7 @@ public class Recipe {
     private String name;
 
     @ManyToMany
-    private final List<Ingredient> ingredients = new ArrayList<>();
+    private final List<IngredientEntry> ingredientEntries = new ArrayList<>();
 
     @ManyToMany
     private final List<Step> steps = new ArrayList<>();
@@ -38,7 +38,6 @@ public class Recipe {
     }
     //constructor for recipe imported from website
 
-
     public Integer getId() {
         return id;
     }
@@ -51,12 +50,12 @@ public class Recipe {
         this.name = name;
     }
 
-    public List<Ingredient> getIngredients() {
-        return ingredients;
+    public List<IngredientEntry> getIngredientEntries() {
+        return ingredientEntries;
     }
 
-    public void addIngredient(Ingredient ingredient) {
-        this.ingredients.add(ingredient);
+    public void addIngredientEntry(IngredientEntry ingredientEntry) {
+        this.ingredientEntries.add(ingredientEntry);
     }
 
     public List<Step> getSteps() {

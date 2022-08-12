@@ -25,7 +25,7 @@ public class RecipeController {
     }
 
     //@PutMapping("recipes")
-    //updateRecipe
+    //editRecipe
 
     //@DeleteMapping("recipes")
     //deleteRecipe;
