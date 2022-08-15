@@ -10,6 +10,8 @@ import { IngredientComponent } from './ingredient/ingredient.component';
 import { StepComponent } from './step/step.component';
 import {HttpClientModule} from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { AddNewComponent } from './add-new/add-new.component';
+import { ImportRecipeComponent } from './import-recipe/import-recipe.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,9 @@ import { FormsModule } from '@angular/forms';
     HomeComponent,
     RecipeComponent,
     IngredientComponent,
-    StepComponent
+    StepComponent,
+    AddNewComponent,
+    ImportRecipeComponent
   ],
   imports: [
     BrowserModule,
