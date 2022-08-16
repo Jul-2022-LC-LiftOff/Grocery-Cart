@@ -25,7 +25,7 @@ export class RecipeComponent implements OnInit {
   recipes: Recipe[] = [];
   closeResult: string | undefined;
 
-  constructor(private httpClient: HttpClient, private modalService: NgbModal,) { }
+  constructor(private httpClient: HttpClient, private modalService: NgbModal) { }
 
   ngOnInit(): void {
     this.getRecipes();

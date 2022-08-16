@@ -4,8 +4,9 @@ import { Recipe } from '../recipe/recipe.component';
 export class Ingredient {
   constructor(
     public id: number,
-    public name: string,
-    public recipes: Recipe[]
+    public amount: number,
+    public unit: string,
+    public ingredient: string
   ) {
   }
 }
