@@ -15,9 +15,8 @@ public class IngredientEntry {
 
     private String unit;
 
-    @ManyToOne
-    @JoinColumn(name = "ingredient_id")
-    private Ingredient ingredient;
+
+    private String ingredient;
 
     @ManyToMany(mappedBy = "ingredientEntries")
     private final List<Recipe> recipes = new ArrayList<>();
@@ -25,7 +24,7 @@ public class IngredientEntry {
     public IngredientEntry() {
     }
 
-    public IngredientEntry(Integer id, Integer amount, String unit, Ingredient ingredient) {
+    public IngredientEntry(Integer id, Integer amount, String unit, String ingredient) {
         this.id = id;
         this.amount = amount;
         this.unit = unit;
@@ -52,11 +51,11 @@ public class IngredientEntry {
         this.unit = unit;
     }
 
-    public Ingredient getIngredient() {
+    public String getIngredient() {
         return ingredient;
     }
 
-    public void setIngredient(Ingredient ingredient) {
+    public void setIngredient(String ingredient) {
         this.ingredient = ingredient;
     }
 
