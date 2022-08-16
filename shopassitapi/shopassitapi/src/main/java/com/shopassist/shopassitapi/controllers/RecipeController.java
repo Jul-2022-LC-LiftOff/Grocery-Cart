@@ -24,10 +24,14 @@ public class RecipeController {
         recipeRepository.save(recipe);
     }
 
-    //@PutMapping("recipes")
-    //editRecipe
+    @PutMapping("recipes/{id}/edit")
+    public void editRecipe(@PathVariable("id") Integer id, @RequestBody Recipe recipe) {
+        recipeRepository.save(recipe);
+    }
 
-    //@DeleteMapping("recipes")
-    //deleteRecipe;
+    @DeleteMapping("recipes/{id}/delete")
+    public void deleteRecipe(@PathVariable("id") Integer id) {
+        recipeRepository.deleteById(id);
+    }
 
 }
