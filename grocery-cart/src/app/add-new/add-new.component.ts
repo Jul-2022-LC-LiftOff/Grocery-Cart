@@ -3,14 +3,14 @@ import { Component, OnInit } from '@angular/core';
 import { Ingredient } from '../ingredient/ingredient.component';
 import { Step } from '../step/step.component';
 import {ModalDismissReasons, NgbModal} from '@ng-bootstrap/ng-bootstrap';
+import { NgForm } from '@angular/forms';
 
 export class Recipe {
   constructor(
     public id: number,
     public name: string,
     public ingredients: Ingredient[],
-    public steps: Step[],
-    public link: string
+    public steps: Step[]
   ) {
   }
 }
@@ -58,4 +58,36 @@ export class AddNewComponent implements OnInit {
     }
   }
 
+  onAddIngredient(f: NgForm) {
+    this.ingredients.push(f.value);
+    const url = 'http://localhost:8080/ingredientEntries/addnew';
+    this.httpClient.post(url, f.value)
+      .subscribe((result) => {
+        this.ngOnInit(); //reload the table
+      });
+    this.modalService.dismissAll(); //dismiss the modal
+    console.log(this.ingredients);
+  }
+
+  onAddStep(f: NgForm) {
+    this.steps.push(f.value);
+    const url = 'http://localhost:8080/steps/addnew';
+    this.httpClient.post(url, f.value)
+      .subscribe((result) => {
+        this.ngOnInit(); //reload the table
+      });
+    this.modalService.dismissAll(); //dismiss the modal
+    console.log(this.steps);
+  }
+
+
+
+  onSubmit(f: NgForm) {
+    const url = 'http://localhost:8080/recipes/addnew';
+    this.httpClient.post(url, f.value)
+      .subscribe((result) => {
+        this.ngOnInit(); //reload the table
+      });
+    this.modalService.dismissAll(); 
+  }
 }

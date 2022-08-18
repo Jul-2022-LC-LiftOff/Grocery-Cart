@@ -1,27 +1,38 @@
 <div>
-    <h4 class="modal-title" id="modal-basic-title">New Recipe</h4>
-  </div>
+  <h4 class="modal-title" id="modal-basic-title">New Recipe</h4>
+</div>
+<div>
   <div>
-    <form>
-        <div class="form-group">
-            <label for="name">Recipe Name</label>
-            <div>
-                <p><input id="name" name="name" ngModel /></p>
-            </div>
-          </div>
-          <div class="form-group">
-            <label for="ingredients">Ingredients</label>
-                <p><button (click)="addIngredient(ingredientContent)">+ Add Ingredient</button></p>
-          </div>
-          <div class="form-group">
-            <label for="steps">Steps</label>
-            <p><button (click)="addStep(stepContent)">+ Add Step</button></p>
-          </div>
-          <div>
-            <button type="submit">Submit</button>
-          </div>
-    </form>
+    <label for="ingredients">Ingredients</label>
+    <button (click)="addIngredient(ingredientContent)">+ Add Ingredient</button>
   </div>
+  <div class="form-group">
+    <label for="steps">Steps</label>
+    <button (click)="addStep(stepContent)">+ Add Step</button>
+  </div>
+    <br><br><br><br><br>
+  <form #f="ngForm" (ngSubmit)="onSubmit(f)" novalidate>
+    <div class="form-group">
+      <label for="name">Recipe Name</label>
+      <div>
+        <input id="name" name="name" ngModel />
+      </div>
+    </div>
+    <br>
+    <p>Ingredients:</p>
+      <ul *ngFor="let ingredient of ingredients">
+        <li>{{ingredient.amount}} {{ingredient.unit}} {{ingredient.ingredient}}</li>
+      </ul>
+    <p>Steps:</p>  
+      <ol *ngFor="let step of steps">
+        <li>{{step.step}}</li>
+      </ol>
+
+    <div>
+      <button type="submit">Submit</button>
+    </div>
+  </form>
+</div>
 
 
   <ng-template #ingredientContent let-modal>
@@ -31,10 +42,23 @@
         <span aria-hidden="true">&times;</span>
       </button>
     </div>
-    <div class="border text-center">
-      <button data-dismiss="modal" class="btn btn-info">Add</button>
-    </div>
-      
+    <form #f="ngForm" (ngSubmit)="onAddIngredient(f)" novalidate>
+      <label for="name">Amount</label>
+      <div>
+        <input id="amount" name="amount" ngModel />
+      </div>
+      <label for="name">Unit</label>
+      <div>
+        <input id="unit" name="unit" ngModel />
+      </div>
+      <label for="name">Ingredient</label>
+      <div>
+        <input id="ingredient" name="ingredient" ngModel />
+      </div>
+      <div class="border text-center">
+        <button data-dismiss="modal" class="btn btn-info">Add</button>
+      </div>
+    </form>  
   </ng-template>
 
   <ng-template #stepContent let-modal>
@@ -44,10 +68,15 @@
         <span aria-hidden="true">&times;</span>
       </button>
     </div>
-    <div class="border text-center">
-      <button data-dismiss="modal" class="btn btn-info">Add</button>
-    </div>
-      
+    <form #f="ngForm" (ngSubmit)="onAddStep(f)" novalidate>
+      <label for="name">Step</label>
+      <div>
+        <input id="step" name="step" ngModel />
+      </div>
+      <div class="border text-center">
+        <button data-dismiss="modal" class="btn btn-info">Add</button>
+      </div>
+    </form>
   </ng-template>
 
 
