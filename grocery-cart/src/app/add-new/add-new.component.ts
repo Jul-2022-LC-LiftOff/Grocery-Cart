@@ -22,10 +22,11 @@ export class Recipe {
 })
 export class AddNewComponent implements OnInit {
 
-  recipes: Recipe[] = [];
   closeResult: string | undefined;
   ingredients: Ingredient[] = [];
   steps: Step[] = [];
+
+  recipe: Recipe = new Recipe();
 
   constructor(private httpClient: HttpClient, private modalService: NgbModal) { }
 
@@ -84,6 +85,7 @@ export class AddNewComponent implements OnInit {
 
   onSubmit(f: NgForm) {
     const url = 'http://localhost:8080/recipes/addnew';
+    console.log(f.value);
     this.httpClient.post(url, f.value)
       .subscribe((result) => {
         this.ngOnInit(); //reload the table
