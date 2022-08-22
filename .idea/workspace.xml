@@ -1,15 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="64400b15-bb51-4a1d-bc96-c7b0437366bd" name="Changes" comment="initial spring api commit">
-      <change afterPath="$PROJECT_DIR$/shopassitapi/shopassitapi/src/main/java/com/shopassist/shopassitapi/controllers/IngredientEntryController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shopassitapi/shopassitapi/src/main/java/com/shopassist/shopassitapi/controllers/StepController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shopassitapi/shopassitapi/src/main/java/com/shopassist/shopassitapi/data/IngredientRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/shopassitapi/shopassitapi/src/main/java/com/shopassist/shopassitapi/models/Ingredient.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/shopassitapi/shopassitapi/src/main/java/com/shopassist/shopassitapi/models/IngredientEntry.java" beforeDir="false" afterPath="$PROJECT_DIR$/shopassitapi/shopassitapi/src/main/java/com/shopassist/shopassitapi/models/IngredientEntry.java" afterDir="false" />
-    </list>
+    <list default="true" id="64400b15-bb51-4a1d-bc96-c7b0437366bd" name="Changes" comment="initial spring api commit" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -18,7 +10,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="cera" />
+        <entry key="$PROJECT_DIR$" value="main" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -34,14 +26,6 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "C:/Users/13143/Jul2022LCliftoffGrocerycart/Grocery-Cart/shopassitapi/shopassitapi/src/main/java/com/shopassist/shopassitapi/controllers",
-    "run.code.analysis.last.selected.profile": "pProject Default"
-  }
-}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\13143\Jul2022LCliftoffGrocerycart\Grocery-Cart\shopassitapi\shopassitapi\src\main\java\com\shopassist\shopassitapi\controllers" />
