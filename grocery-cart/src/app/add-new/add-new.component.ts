@@ -25,12 +25,18 @@ export class AddNewComponent implements OnInit {
   closeResult: string | undefined;
   ingredients: Ingredient[] = [];
   steps: Step[] = [];
+  recipesFromDb: Recipe[] = [];
+  ingredientsFromDb: Ingredient[] = [];
+  stepsFromDb: Step[] = [];
 
-  recipe: Recipe = new Recipe();
+
 
   constructor(private httpClient: HttpClient, private modalService: NgbModal) { }
 
   ngOnInit() {
+    this.getRecipes();
+    this.getIngredients();
+    this.getSteps();
   }
 
   addIngredient(content: any) {
@@ -81,15 +87,61 @@ export class AddNewComponent implements OnInit {
     console.log(this.steps);
   }
 
+  
+  getRecipes(){
+    this.httpClient.get<any>('http://localhost:8080/recipes').subscribe(
+      response => {
+        //console.log(response);
+        this.recipesFromDb = response;
+      }
+    );
+  }
+  
+  getIngredients(){
+    this.httpClient.get<any>('http://localhost:8080/ingredientEntries').subscribe(
+      response => {
+        //console.log(response);
+        this.ingredientsFromDb = response;
+      }
+    );
+  }
+
+  getSteps(){
+    this.httpClient.get<any>('http://localhost:8080/steps').subscribe(
+      response => {
+        //console.log(response);
+        this.stepsFromDb = response;
+      }
+    );
+  }
+  
 
 
   onSubmit(f: NgForm) {
+    
     const url = 'http://localhost:8080/recipes/addnew';
     console.log(f.value);
     this.httpClient.post(url, f.value)
       .subscribe((result) => {
         this.ngOnInit(); //reload the table
       });
-    this.modalService.dismissAll(); 
+
+    console.log("recipes", this.recipesFromDb);
+    console.log("ingredients", this.ingredientsFromDb);
+    console.log("steps", this.stepsFromDb);
+
+    let recipeId: number = this.recipesFromDb[this.recipesFromDb.length-1].id;
+    console.log(recipeId);
+    
+    //similar to recipeId, get all ingredient ids and step ids
+
+    let ingredientIds: number[];
+
+      //for each ingredient in ingredients[], post a RecipeIngredientEntryDto
+
+    let stepIds: number[];
+      //for each step in steps[], post a RecipeIngredientEntryDto
+
+
   }
 }
