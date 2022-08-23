@@ -8,8 +8,6 @@ export class Recipe {
   constructor(
     public id: number,
     public name: string,
-    public ingredients: Ingredient[],
-    public steps: Step[],
     public link: string
   ) {
   }
