@@ -58,6 +58,7 @@ public class  RecipeController {
         recipeIngredientEntryDTO.setIngredientEntry(ingredientEntry);
         recipe.addIngredientEntry(ingredientEntry);
         recipeRepository.save(recipe);
+        ingredientEntryRepository.save(ingredientEntry);
     }
 
     @PutMapping("recipes/{id}/addSteps")
@@ -71,6 +72,7 @@ public class  RecipeController {
         recipeStepDTO.setStep(step);
         recipe.addStep(step);
         recipeRepository.save(recipe);
+        stepRepository.save(step);
     }
 
 }
