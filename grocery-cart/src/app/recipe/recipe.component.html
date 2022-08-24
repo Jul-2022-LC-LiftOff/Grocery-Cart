@@ -1,7 +1,9 @@
 <h1>Recipes</h1>
 <br><br>
 <div>
-    <button (click)="open(content)">New Recipe</button>
+  <button><a class="navbar-brand" href="/add-new">New Recipe</a></button>
+  <br>
+  <button><a class="navbar-brand" href="/import-recipe">Import Recipe from Website</a></button>
 </div>
 <br><br>
 <div class="container">
@@ -28,7 +30,7 @@
     </table>
   </div>
 
-  <ng-template #content let-modal>
+  <!--<ng-template #content let-modal>
     <div class="modal-header">
       <h4 class="modal-title" id="modal-basic-title">What type of recipe would you like to add:</h4>
       <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
@@ -37,4 +39,4 @@
     </div>
     <button><a class="navbar-brand" href="/add-new">Personal/Manual Recipe</a></button>
     <button><a class="navbar-brand" href="/import-recipe">Import Recipe from Website</a></button>
-  </ng-template>
+  </ng-template>-->
