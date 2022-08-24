@@ -47,7 +47,7 @@ public class  RecipeController {
         recipeRepository.deleteById(id);
     }
 
-    @PutMapping("recipes/{id}/addIngredients")
+    @PostMapping("recipes/{id}/addIngredients")
     public void addIngredientsToRecipe(@PathVariable("id") Integer recipeId, @RequestBody Integer ingredientEntryId) {
         Optional<Recipe> recipeResult = recipeRepository.findById(recipeId);
         Recipe recipe = recipeResult.get();
@@ -61,7 +61,7 @@ public class  RecipeController {
         ingredientEntryRepository.save(ingredientEntry);
     }
 
-    @PutMapping("recipes/{id}/addSteps")
+    @PostMapping("recipes/{id}/addSteps")
     public void addStepsToRecipe(@PathVariable("id") Integer recipeId, @RequestBody Integer stepId) {
         Optional<Recipe> recipeResult = recipeRepository.findById(recipeId);
         Recipe recipe = recipeResult.get();

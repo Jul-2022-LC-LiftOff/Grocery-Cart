@@ -164,10 +164,11 @@ export class AddNewComponent implements OnInit {
 
 
   onSubmit(f: NgForm) {
-    let recipeId: number = this.recipesFromDb[this.recipesFromDb.length-1].id;
-    console.log(recipeId);
     
-    //similar to recipeId, get all ingredient ids in their own arrays:
+    let recipeId: number = this.recipesFromDb[this.recipesFromDb.length-1].id;
+    console.log("Recipe Id", recipeId);
+    
+    //similar to recipeId, get all ingredient ids in their own array:
     let ingredientIds: number[] = [];
     for(let i = 0; i < this.ingredientsFromDb.length; i++) {
       for(let j = 0; j < this.ingredients.length; j++) {
@@ -181,7 +182,7 @@ export class AddNewComponent implements OnInit {
       }
     }
   
-    //similar to recipeId, get all step ids in their own arrays:
+    //similar to recipeId, get all step ids in their own array:
     let stepIds: number[] = [];
     for (let i = 0; i < this.stepsFromDb.length; i++) {
       for (let j = 0; j < this.steps.length; j++) {
@@ -195,25 +196,28 @@ export class AddNewComponent implements OnInit {
       }
     }
 
-    console.log("ingredients", ingredientIds);
-    console.log("steps", stepIds);
+    console.log("ingredients", ingredientIds, ingredientIds.length);
+    console.log("steps", stepIds, stepIds.length);
     
 
     //TODO: for each ingredient in ingredients[], post a RecipeIngredientEntryDto to database
     for (let i = 0; i < ingredientIds.length; i++) {
       const url = 'http://localhost:8080/recipes/' + recipeId + '/addIngredients';
       let ingredientId: number = ingredientIds[i];
-      this.httpClient.put(url, ingredientId).subscribe((results) => {});
+      this.httpClient.post(url, ingredientId).subscribe((response) => {});
+      console.log("Ingredient Id:", [i], ",", ingredientId);
     }
 
     //TODO: for each step in steps[], post a RecipeIngredientEntryDto to database
     for (let i = 0; i < stepIds.length; i++) {
       const url = 'http://localhost:8080/recipes/' + recipeId + '/addSteps';
       let stepId: number = stepIds[i];
-      this.httpClient.put(url, stepId).subscribe((results) => {});
+      this.httpClient.post(url, stepId).subscribe((response) => {});
+      console.log("Step Id:", [i], ",", stepId);
     }
     //TODO: reload to recipe page
-    this.router.navigate(['/recipes']);
+    //this.router.navigate(['/recipes']);
+    //the code works but I have it commented out to view the console.log each time I click Submit
 
 
   }
