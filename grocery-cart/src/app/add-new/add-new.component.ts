@@ -41,11 +41,16 @@ export class AddNewComponent implements OnInit {
   }
 
   addRecipeName(content: any) {
-    this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
+    if (this.recipeName == undefined) {
+      this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
       this.closeResult = `Closed with: ${result}`;
     }, (reason) => {
       this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
     });
+    } else {
+      //do nothing
+    }
+    
   }
 
   addIngredient(content: any) {
