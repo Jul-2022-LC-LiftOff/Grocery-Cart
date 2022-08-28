@@ -5,37 +5,43 @@
 
   <br>
 
-  <div>
-    <button (click)="addRecipeName(recipeContent)">+ Add Recipe Name</button>
-  </div>
-  
-  <br>
-  
-  <div>
-    <button (click)="addIngredient(ingredientContent)">+ Add Ingredient</button>
-  </div>
+  <div class="form-group">
+    <p>Recipe Name: {{recipeName?.name}}</p>
+    <div>
+      <button (click)="addRecipeName(recipeContent)">+ Add Recipe Name</button>
+    </div>
+
+    <br>
+    <p>Ingredients:</p>
+    <table>
+      <tr *ngFor="let ingredient of ingredients">
+        <td>{{ingredient.amount}} {{ingredient.unit}} {{ingredient.ingredient}}</td>
+        <td>
+          <button>Edit</button>
+          <button>Remove</button>
+        </td>
+      </tr>
+    </table>
+    <div>
+      <button (click)="addIngredient(ingredientContent)">+ Add Ingredient</button>
+    </div>
+
+    <br>
+    <p>Steps:</p>  
+    <table>
+      <tr *ngFor="let step of steps">
+        <td>{{step.step}}</td>
+        <td>
+          <button>Edit</button>
+          <button>Remove</button>
+        </td>
+      </tr>
+    </table>
+    <div>
+      <button (click)="addStep(stepContent)">+ Add Step</button>
+    </div>
 
   <br>
-  
-  <div>
-    <button (click)="addStep(stepContent)">+ Add Step</button>
-  </div>
-
-    <br><br>
-  
-    <div class="form-group">
-      <p>Recipe Name: {{recipeName?.name}}</p>
-
-      <p>Ingredients:</p>
-        <ul>
-          <li *ngFor="let ingredient of ingredients">{{ingredient.amount}} {{ingredient.unit}} {{ingredient.ingredient}}</li>
-        </ul>
-
-      <p>Steps:</p>  
-        <ol>
-          <li *ngFor="let step of steps">{{step.step}}</li>
-        </ol>
-
   <form #f="ngForm" (ngSubmit)="onSubmit(f)" novalidate>
     <div>
       <button type="submit">Submit</button>
