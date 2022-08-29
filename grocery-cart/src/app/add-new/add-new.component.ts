@@ -222,7 +222,6 @@ export class AddNewComponent implements OnInit {
     }
     //TODO: reload to recipe page
     this.router.navigate(['/recipes']);
-    //the code works but I have it commented out to view the console.log each time I click Submit
 
 
   }

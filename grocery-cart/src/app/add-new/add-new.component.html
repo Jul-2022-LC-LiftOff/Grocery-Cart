@@ -17,7 +17,6 @@
       <tr *ngFor="let ingredient of ingredients">
         <td>{{ingredient.amount}} {{ingredient.unit}} {{ingredient.ingredient}}</td>
         <td>
-          <button>Edit</button>
           <button>Remove</button>
         </td>
       </tr>
@@ -28,15 +27,9 @@
 
     <br>
     <p>Steps:</p>  
-    <table>
-      <tr *ngFor="let step of steps">
-        <td>{{step.step}}</td>
-        <td>
-          <button>Edit</button>
-          <button>Remove</button>
-        </td>
-      </tr>
-    </table>
+    <ol>
+      <li *ngFor="let step of steps">{{step.step}}  <button>Remove</button></li>
+    </ol>
     <div>
       <button (click)="addStep(stepContent)">+ Add Step</button>
     </div>
