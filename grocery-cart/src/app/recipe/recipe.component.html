@@ -1,7 +1,8 @@
-<h1>Recipes</h1>
+<h1>Add Recipe</h1>
 <br><br>
 <div>
-    <button (click)="open(content)">New Recipe</button>
+    <button mat-raised-button color="primary" (click)="open(content)"><mat-icon>add</mat-icon>
+    </button>
 </div>
 <br><br>
 <div class="container">
@@ -31,10 +32,10 @@
   <ng-template #content let-modal>
     <div class="modal-header">
       <h4 class="modal-title" id="modal-basic-title">What type of recipe would you like to add:</h4>
-      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <button mat-raised-button color="accent" type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
         <span aria-hidden="true">&times;</span>
       </button>
     </div>
-    <button><a class="navbar-brand" href="/add-new">Personal/Manual Recipe</a></button>
-    <button><a class="navbar-brand" href="/import-recipe">Import Recipe from Website</a></button>
+    <button mat-raised-button color="primary" class="border-button"><a class="navbar-brand" href="/add-new">Personal/Manual Recipe</a></button>
+    <button mat-raised-button color="primary" class="border-button"><a class="navbar-brand" href="/import-recipe">Import Recipe from Website</a></button>
   </ng-template>
