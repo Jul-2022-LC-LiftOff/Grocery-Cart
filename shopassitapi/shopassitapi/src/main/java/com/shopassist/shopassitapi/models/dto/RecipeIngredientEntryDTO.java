@@ -3,8 +3,6 @@ package com.shopassist.shopassitapi.models.dto;
 import com.shopassist.shopassitapi.models.IngredientEntry;
 import com.shopassist.shopassitapi.models.Recipe;
 
-import java.util.Optional;
-
 public class RecipeIngredientEntryDTO {
 
     //@NotNull

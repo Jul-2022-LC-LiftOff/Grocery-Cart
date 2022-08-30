@@ -2,38 +2,65 @@
   <h4 class="modal-title" id="modal-basic-title">New Recipe</h4>
 </div>
 <div>
-  <div>
-    <label for="ingredients">Ingredients</label>
-    <button (click)="addIngredient(ingredientContent)">+ Add Ingredient</button>
-  </div>
+
+  <br>
+
   <div class="form-group">
-    <label for="steps">Steps</label>
-    <button (click)="addStep(stepContent)">+ Add Step</button>
-  </div>
-    <br><br><br><br><br>
-  <form #f="ngForm" (ngSubmit)="onSubmit(f)" novalidate>
-    <div class="form-group">
-      <label for="name">Recipe Name</label>
-      <div>
-        <input id="name" name="name" ngModel />
-      </div>
+    <p>Recipe Name: {{recipeName?.name}}</p>
+    <div>
+      <button (click)="addRecipeName(recipeContent)">+ Add Recipe Name</button>
     </div>
+
     <br>
     <p>Ingredients:</p>
-      <ul>
-        <li *ngFor="let ingredient of ingredients">{{ingredient.amount}} {{ingredient.unit}} {{ingredient.ingredient}}</li>
-      </ul>
-    <p>Steps:</p>  
-      <ol>
-        <li *ngFor="let step of steps">{{step.step}}</li>
-      </ol>
+    <table>
+      <tr *ngFor="let ingredient of ingredients">
+        <td>{{ingredient.amount}} {{ingredient.unit}} {{ingredient.ingredient}}</td>
+        <td>
+          <button>Remove</button>
+        </td>
+      </tr>
+    </table>
+    <div>
+      <button (click)="addIngredient(ingredientContent)">+ Add Ingredient</button>
+    </div>
 
+    <br>
+    <p>Steps:</p>  
+    <ol>
+      <li *ngFor="let step of steps">{{step.step}}  <button>Remove</button></li>
+    </ol>
+    <div>
+      <button (click)="addStep(stepContent)">+ Add Step</button>
+    </div>
+
+  <br>
+  <form #f="ngForm" (ngSubmit)="onSubmit(f)" novalidate>
     <div>
       <button type="submit">Submit</button>
     </div>
   </form>
+
 </div>
 
+
+<ng-template #recipeContent let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Add Recipe:</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <form #f="ngForm" (ngSubmit)="onAddRecipeName(f)" novalidate>
+    <label for="name">Recipe Name</label>
+    <div>
+      <input id="name" name="name" ngModel />
+    </div>
+    <div class="border text-center">
+      <button data-dismiss="modal" class="btn btn-info">Add</button>
+    </div>
+  </form>
+</ng-template>
 
   <ng-template #ingredientContent let-modal>
     <div class="modal-header">

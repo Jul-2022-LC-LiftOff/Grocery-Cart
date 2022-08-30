@@ -8,8 +8,6 @@ export class Recipe {
   constructor(
     public id: number,
     public name: string,
-    public ingredients: Ingredient[],
-    public steps: Step[],
     public link: string
   ) {
   }
@@ -24,6 +22,7 @@ export class RecipeComponent implements OnInit {
 
   recipes: Recipe[] = [];
   closeResult: string | undefined;
+  private deleteId: number | undefined;
 
   constructor(private httpClient: HttpClient, private modalService: NgbModal) { }
 
@@ -40,6 +39,7 @@ export class RecipeComponent implements OnInit {
     );
   }
 
+  
   open(content: any) {
     this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
       this.closeResult = `Closed with: ${result}`;
@@ -48,6 +48,7 @@ export class RecipeComponent implements OnInit {
     });
   }
   
+
   private getDismissReason(reason: any): string {
     if (reason === ModalDismissReasons.ESC) {
       return 'by pressing ESC';
@@ -57,5 +58,23 @@ export class RecipeComponent implements OnInit {
       return `with: ${reason}`;
     }
   }
+
+  openDelete(targetModal: any, recipe: Recipe) {
+    this.deleteId = recipe.id;
+    this.modalService.open(targetModal, {
+      backdrop: 'static',
+      size: 'lg'
+    });
+  }
+
+  onDelete() {
+    const deleteURL = 'http://localhost:8080/recipes/' + this.deleteId + '/delete';
+    this.httpClient.delete(deleteURL)
+      .subscribe((results) => {
+        this.ngOnInit();
+        this.modalService.dismissAll();
+      });
+  }
+  
 
 }
