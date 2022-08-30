@@ -30,7 +30,7 @@ public class StepController {
     }
 
     @DeleteMapping("steps/{id}/delete")
-    public void deleteStep(@PathVariable("id") Integer id) {
+    //public void deleteStep(@PathVariable("id") Integer id) {
         stepRepository.deleteById(id);
     }
 
