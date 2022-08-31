@@ -4,8 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="64400b15-bb51-4a1d-bc96-c7b0437366bd" name="Changes" comment="initial spring api commit">
-      <change beforePath="$PROJECT_DIR$/grocery-cart/src/app/home/home.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/grocery-cart/src/app/home/home.component.html" afterDir="false" />
+    <list default="true" id="64400b15-bb51-4a1d-bc96-c7b0437366bd" name="Changes" comment="I think this fixes the issues with the FAQ and Steps button and puts us back where we were. I kept the ingredient and step component as components because when I tried to delete it, it messed things up with the recipe entry.">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/grocery-cart/src/app/app-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/grocery-cart/src/app/app-routing.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shopassitapi/shopassitapi/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/shopassitapi/shopassitapi/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
