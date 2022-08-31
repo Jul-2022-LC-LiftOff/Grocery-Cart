@@ -178,11 +178,7 @@ export class AddNewComponent implements OnInit {
     for(let i = 0; i < this.ingredientsFromDb.length; i++) {
       for(let j = 0; j < this.ingredients.length; j++) {
         if(this.ingredientsFromDb[i].amount == this.ingredients[j].amount && this.ingredientsFromDb[i].unit == this.ingredients[j].unit && this.ingredientsFromDb[i].ingredient == this.ingredients[j].ingredient) {
-          if(ingredientIds.includes(this.ingredientsFromDb[i].id)) {
-            break;
-          } else {
             ingredientIds.push(this.ingredientsFromDb[i].id);
-          }
         }
       }
     }
@@ -192,11 +188,7 @@ export class AddNewComponent implements OnInit {
     for (let i = 0; i < this.stepsFromDb.length; i++) {
       for (let j = 0; j < this.steps.length; j++) {
         if(this.stepsFromDb[i].step == this.steps[j].step) {
-          if(stepIds.includes(this.stepsFromDb[i].id)) {
-            break;
-          } else {
             stepIds.push(this.stepsFromDb[i].id);
-          }
         }
       }
     }
