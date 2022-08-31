@@ -6,9 +6,9 @@
     <br>
   
     <div class="form-group">
-      <p>Recipe Name: {{recipeName?.name}}</p>
+      <p>Recipe Name: <b>{{recipeName?.name}}</b></p>
       <div>
-        <button (click)="addRecipeName(recipeContent)">+ Add Recipe Name</button>
+        <button mat-raised-button color="accent" class="border-button" (click)="addRecipeName(recipeContent)">+ Add Recipe Name</button>
       </div>
   
       <br>
@@ -22,7 +22,7 @@
         </tr>
       </table>
       <div>
-        <button (click)="addIngredient(ingredientContent)">+ Add Ingredient</button>
+        <button mat-raised-button color="accent" class="border-button" (click)="addIngredient(ingredientContent)">+ Add Ingredient</button>
       </div>
   
       <br>
@@ -31,13 +31,13 @@
         <li *ngFor="let step of steps">{{step.step}}  <button>Remove</button></li>
       </ol>
       <div>
-        <button (click)="addStep(stepContent)">+ Add Step</button>
+        <button mat-raised-button color="accent" class="border-button" (click)="addStep(stepContent)">+ Add Step</button>
       </div>
   
     <br>
     <form #f="ngForm" (ngSubmit)="onSubmit(f)" novalidate>
       <div>
-        <button type="submit">Submit</button>
+        <button mat-raised-button color="primary" class="border-button" type="submit">Submit</button>
       </div>
     </form>
   
