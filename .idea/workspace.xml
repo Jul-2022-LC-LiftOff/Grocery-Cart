@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="64400b15-bb51-4a1d-bc96-c7b0437366bd" name="Changes" comment="initial spring api commit">
-      <change beforePath="$PROJECT_DIR$/grocery-cart/src/app/home/home.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/grocery-cart/src/app/home/home.component.html" afterDir="false" />
-    </list>
+    <list default="true" id="64400b15-bb51-4a1d-bc96-c7b0437366bd" name="Changes" comment="Fixing list and step component links" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -79,7 +77,14 @@
       <option name="project" value="LOCAL" />
       <updated>1660669540006</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Fixing list and step component links">
+      <created>1661973323341</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1661973323341</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -87,7 +92,19 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="Allie_Second" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
@@ -95,6 +112,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="initial spring api commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="initial spring api commit" />
+    <MESSAGE value="Fixing list and step component links" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixing list and step component links" />
   </component>
 </project>
