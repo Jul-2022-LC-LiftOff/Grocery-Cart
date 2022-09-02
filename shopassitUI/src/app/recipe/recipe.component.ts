@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Ingredient } from '../ingredient/ingredient.component';
 import { Step } from '../step/step.component';
 import {ModalDismissReasons, NgbModal} from '@ng-bootstrap/ng-bootstrap';
+import { RecipeService } from '../recipe.service';
 
 export class Recipe {
   constructor(
@@ -26,14 +27,14 @@ export class RecipeComponent implements OnInit {
   closeResult: string | undefined;
   private deleteId: number | undefined;
 
-  constructor(private httpClient: HttpClient, private modalService: NgbModal) { }
+  constructor(private httpClient: HttpClient, private modalService: NgbModal, private recipeService: RecipeService) { }
 
   ngOnInit(): void {
     this.getRecipes();
   }
 
   getRecipes(){
-    this.httpClient.get<any>('http://localhost:8080/recipes').subscribe(
+    this.recipeService.getRecipes().subscribe(
       response => {
         console.log(response);
         this.recipes = response;

@@ -6,6 +6,7 @@ import {ModalDismissReasons, NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Recipe } from '../recipe/recipe.component';
+import { RecipeService } from '../recipe.service';
 
 @Component({
   selector: 'app-add-new',
@@ -25,12 +26,33 @@ export class AddNewComponent implements OnInit {
 
 
 
-  constructor(private httpClient: HttpClient, private modalService: NgbModal, private router: Router) { }
+  constructor(private httpClient: HttpClient, private modalService: NgbModal, private router: Router, private recipeService: RecipeService) { }
 
   ngOnInit() {
     this.getRecipes();
     this.getIngredients();
     this.getSteps();
+  }
+
+  getRecipes(){
+    this.recipeService.getRecipes().subscribe(response => {
+        this.recipesFromDb = response;
+      }
+    );
+  }
+  
+  getIngredients(){
+    this.recipeService.getIngredients().subscribe(response => {
+        this.ingredientsFromDb = response;
+      }
+    );
+  }
+
+  getSteps(){
+    this.recipeService.getSteps().subscribe(response => {
+        this.stepsFromDb = response;
+      }
+    );
   }
 
   addRecipeName(content: any) {
@@ -66,9 +88,7 @@ export class AddNewComponent implements OnInit {
 
   onAddRecipeName(f: NgForm) {
     this.recipeName = f.value;
-    const url = 'http://localhost:8080/recipes/addnew';
-    this.httpClient.post(url, f.value)
-      .subscribe((result) => {
+    this.recipeService.addRecipe(f.value).subscribe((result) => {
         this.ngOnInit(); //reload the table
       });
     this.modalService.dismissAll(); //dismiss the modal
@@ -89,8 +109,7 @@ export class AddNewComponent implements OnInit {
     if(isIngredientInDatabase == true) {
       //do nothing
     } else {
-        const url = 'http://localhost:8080/ingredientEntries/addnew';
-        this.httpClient.post(url, f.value).subscribe((result) => {
+        this.recipeService.addIngredient(f.value).subscribe((result) => {
           this.ngOnInit(); //reload the table
         });
             
@@ -113,8 +132,7 @@ export class AddNewComponent implements OnInit {
     if(isStepInDatabase == true) {
       //do nothing
     } else {
-        const url = 'http://localhost:8080/steps/addnew';
-        this.httpClient.post(url, f.value).subscribe((result) => {
+        this.recipeService.addStep(f.value).subscribe((result) => {
           this.ngOnInit(); //reload the table
         });
     }
@@ -122,36 +140,6 @@ export class AddNewComponent implements OnInit {
     this.modalService.dismissAll(); //dismiss the modal
     //console.log(this.steps);
   }
-
-  
-  getRecipes(){
-    this.httpClient.get<any>('http://localhost:8080/recipes').subscribe(
-      response => {
-        //console.log(response);
-        this.recipesFromDb = response;
-      }
-    );
-  }
-  
-  getIngredients(){
-    this.httpClient.get<any>('http://localhost:8080/ingredientEntries').subscribe(
-      response => {
-        //console.log(response);
-        this.ingredientsFromDb = response;
-      }
-    );
-  }
-
-  getSteps(){
-    this.httpClient.get<any>('http://localhost:8080/steps').subscribe(
-      response => {
-        //console.log(response);
-        this.stepsFromDb = response;
-      }
-    );
-  }
-  
-
 
   onSubmit(f: NgForm) {
     
@@ -184,17 +172,19 @@ export class AddNewComponent implements OnInit {
 
     //TODO: for each ingredient in ingredients[], post a RecipeIngredientEntryDto to database
     for (let i = 0; i < ingredientIds.length; i++) {
-      const url = 'http://localhost:8080/recipes/' + recipeId + '/addIngredients';
       let ingredientId: number = ingredientIds[i];
-      this.httpClient.post(url, ingredientId).subscribe((response) => {});
+      this.recipeService.addRecipeIngredientDto(recipeId, ingredientId).subscribe((result) => {
+        this.ngOnInit(); //reload the table
+      });
       console.log("Ingredient Id:", [i], ",", ingredientId);
     }
 
     //TODO: for each step in steps[], post a RecipeIngredientEntryDto to database
     for (let i = 0; i < stepIds.length; i++) {
-      const url = 'http://localhost:8080/recipes/' + recipeId + '/addSteps';
       let stepId: number = stepIds[i];
-      this.httpClient.post(url, stepId).subscribe(response => {});
+      this.recipeService.addRecipeStepDto(recipeId, stepId).subscribe((result) => {
+        this.ngOnInit(); //reload the table
+      });
       console.log("Step Id:", [i], ",", stepId);
     }
     //TODO: reload to recipe page
