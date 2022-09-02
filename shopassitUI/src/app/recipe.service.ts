@@ -17,14 +17,29 @@ export class RecipeService {
     return this.http.get<Recipe[]>(url);
   }
 
+  public getRecipeById(id: number): Observable<Recipe> {
+    const url = 'http://localhost:8080/recipes/' + id;
+    return this.http.get<Recipe>(url);
+  }
+
   public getIngredients(): Observable<Ingredient[]> {
     const url = "http://localhost:8080/ingredientEntries";
     return this.http.get<Ingredient[]>(url);
   }
 
+  public getIngredientById(id: number): Observable<Ingredient> {
+    const url = 'http://localhost:8080/ingredientEntries/' + id;
+    return this.http.get<Ingredient>(url);
+  }
+
   public getSteps(): Observable<Step[]> {
     const url = "http://localhost:8080/steps";
     return this.http.get<Step[]>(url);
+  }
+
+  public getStepById(id: number): Observable<Step> {
+    const url = 'http://localhost:8080/steps/' + id;
+    return this.http.get<Step>(url);
   }
 
   public addRecipe(recipe: Recipe): Observable<Recipe> {
