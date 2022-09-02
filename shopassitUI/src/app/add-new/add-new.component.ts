@@ -5,14 +5,7 @@ import { Step } from '../step/step.component';
 import {ModalDismissReasons, NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
-
-export class Recipe {
-  constructor(
-    public id: number,
-    public name: string
-  ) {
-  }
-}
+import { Recipe } from '../recipe/recipe.component';
 
 @Component({
   selector: 'app-add-new',
@@ -53,15 +46,7 @@ export class AddNewComponent implements OnInit {
     
   }
 
-  addIngredient(content: any) {
-    this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
-      this.closeResult = `Closed with: ${result}`;
-    }, (reason) => {
-      this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
-    });
-  }
-
-  addStep(content: any) {
+  addIngredientOrStep(content: any) {
     this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
       this.closeResult = `Closed with: ${result}`;
     }, (reason) => {
@@ -209,7 +194,7 @@ export class AddNewComponent implements OnInit {
     for (let i = 0; i < stepIds.length; i++) {
       const url = 'http://localhost:8080/recipes/' + recipeId + '/addSteps';
       let stepId: number = stepIds[i];
-      this.httpClient.post(url, stepId).subscribe((response) => {});
+      this.httpClient.post(url, stepId).subscribe(response => {});
       console.log("Step Id:", [i], ",", stepId);
     }
     //TODO: reload to recipe page

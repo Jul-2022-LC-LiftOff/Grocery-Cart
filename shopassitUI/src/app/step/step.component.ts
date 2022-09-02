@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import { Recipe } from '../recipe/recipe.component';
 
 export class Step {
   constructor(
     public id: number,
-    public step: string
+    public step: string,
+    public recipes: Recipe
   ) {
   }
 }
