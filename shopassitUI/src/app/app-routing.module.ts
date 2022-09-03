@@ -8,6 +8,8 @@ import { IngredientComponent } from './ingredient/ingredient.component';
 import { ListComponent } from './list/list.component';
 import { RecipeComponent } from './recipe/recipe.component';
 import { StepComponent } from './step/step.component';
+import { CreateUserComponent } from './create-user/create-user.component';
+import { LoginComponent } from './login/login.component';
 
 const routes: Routes = [
   {path: 'home', component: HomeComponent},
@@ -18,7 +20,9 @@ const routes: Routes = [
   {path: 'import-recipe', component: ImportRecipeComponent},
   {path: 'list', component: ListComponent},
   {path: 'faq', component: FaqComponent},
-  {path: '', component: HomeComponent}
+  {path: '', component: HomeComponent},
+  {path: 'create-user', component: CreateUserComponent},
+  {path: 'login', component: LoginComponent}
 ];
 
 @NgModule({

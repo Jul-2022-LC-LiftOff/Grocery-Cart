@@ -20,6 +20,8 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatFormFieldModule, MAT_FORM_FIELD_DEFAULT_OPTIONS} from '@angular/material/form-field';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatSidenavModule} from '@angular/material/sidenav';
+import { CreateUserComponent } from './create-user/create-user.component';
+import { LoginComponent } from './login/login.component';
 
 
 
@@ -31,7 +33,9 @@ import {MatSidenavModule} from '@angular/material/sidenav';
     IngredientComponent,
     StepComponent,
     AddNewComponent,
-    ImportRecipeComponent
+    ImportRecipeComponent,
+    CreateUserComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,8 @@
+#login-buttons {
+  display: flex;
+  justify-content: flex-end;
+}
+.mat-toolbar {
+  display: flex;
+  justify-content: space-between;
+}
