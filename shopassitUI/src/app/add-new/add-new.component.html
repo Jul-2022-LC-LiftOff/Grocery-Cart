@@ -13,14 +13,9 @@
   
       <br>
       <p>Ingredients:</p>
-      <table>
-        <tr *ngFor="let ingredient of ingredients">
-          <td>{{ingredient.amount}} {{ingredient.unit}} {{ingredient.ingredient}}</td>
-          <td>
-            <button>Remove</button>
-          </td>
-        </tr>
-      </table>
+    <ul>
+      <li *ngFor="let ingredient of ingredients">{{ingredient.amount}} {{ingredient.unit}} {{ingredient.ingredient}} <button>Remove</button></li>
+    </ul>
       <div>
         <button mat-raised-button color="accent" (click)="addIngredientOrStep(ingredientContent)">+ Add Ingredient</button>
       </div>
@@ -28,7 +23,7 @@
       <br>
       <p>Steps:</p>  
       <ol>
-        <li *ngFor="let step of steps">{{step.step}}  <button>Remove</button></li>
+        <li *ngFor="let step of steps">{{step.step}} <button>Remove</button></li>
       </ol>
       <div>
         <button mat-raised-button color="accent" (click)="addIngredientOrStep(stepContent)">+ Add Step</button>
