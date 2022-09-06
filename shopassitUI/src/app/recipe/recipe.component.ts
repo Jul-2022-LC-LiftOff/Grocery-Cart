@@ -27,6 +27,8 @@ export class RecipeComponent implements OnInit {
   closeResult: string | undefined;
   deleteId: number = 0;
   recipeNameDisplay: string | undefined;
+  ingredientsDisplay: Ingredient[] = [];
+  stepsDisplay: Step[] = [];
 
   constructor(private httpClient: HttpClient, private modalService: NgbModal, private recipeService: RecipeService) { }
 
@@ -70,7 +72,9 @@ export class RecipeComponent implements OnInit {
      size: 'lg'
    });
    this.recipeNameDisplay = recipe.name;
-   console.log(recipe.ingredients[0]);
+   this.ingredientsDisplay = recipe.ingredients;
+   this.stepsDisplay = recipe.steps;
+   console.log(recipe.ingredients);
  }
 
   openDelete(targetModal: any, recipe: Recipe) {
