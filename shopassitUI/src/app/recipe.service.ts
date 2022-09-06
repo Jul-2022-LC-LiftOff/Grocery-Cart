@@ -57,13 +57,20 @@ export class RecipeService {
     return this.http.post<Step>(url, step);
   }
 
-  public addRecipeIngredientDto(recipeId: number, ingredientId: number): Observable<Ingredient> {
+  //needs to be fixed
+  public addRecipeIngredient(recipeId: number, ingredientId: number): Observable<Ingredient> {
     const url = 'http://localhost:8080/recipes/' + recipeId + '/addIngredients';
     return this.http.post<Ingredient>(url, ingredientId);
   }
 
-  public addRecipeStepDto(recipeId: number, stepId: number): Observable<Step> {
+  //needs to be fixed
+  public addRecipeStep(recipeId: number, stepId: number): Observable<Step> {
     const url = 'http://localhost:8080/recipes/' + recipeId + '/addSteps';
     return this.http.post<Step>(url, stepId);
+  }
+
+  public deleteRecipe(id: number): Observable<unknown> {
+    const deleteURL = 'http://localhost:8080/recipes/' + id + '/delete';
+    return this.http.delete(deleteURL);
   }
 }

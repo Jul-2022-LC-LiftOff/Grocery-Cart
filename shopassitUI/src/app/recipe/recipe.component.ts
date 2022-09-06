@@ -25,7 +25,7 @@ export class RecipeComponent implements OnInit {
 
   recipes: Recipe[] = [];
   closeResult: string | undefined;
-  private deleteId: number | undefined;
+  deleteId: number = 0;
 
   constructor(private httpClient: HttpClient, private modalService: NgbModal, private recipeService: RecipeService) { }
 
@@ -62,6 +62,14 @@ export class RecipeComponent implements OnInit {
     }
   }
 
+  openDetails(targetModal: any, recipe: Recipe) {
+    this.modalService.open(targetModal, {
+     centered: true,
+     backdrop: 'static',
+     size: 'lg'
+   });
+ }
+
   openDelete(targetModal: any, recipe: Recipe) {
     this.deleteId = recipe.id;
     this.modalService.open(targetModal, {
@@ -71,9 +79,7 @@ export class RecipeComponent implements OnInit {
   }
 
   onDelete() {
-    const deleteURL = 'http://localhost:8080/recipes/' + this.deleteId + '/delete';
-    this.httpClient.delete(deleteURL)
-      .subscribe((results) => {
+    this.recipeService.deleteRecipe(this.deleteId).subscribe((results) => {
         this.ngOnInit();
         this.modalService.dismissAll();
       });

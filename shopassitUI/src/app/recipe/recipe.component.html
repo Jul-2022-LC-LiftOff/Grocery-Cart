@@ -17,7 +17,7 @@
       <tr *ngFor="let recipe of recipes">
         <td><span>{{recipe.name}}</span></td>
         <td>
-          <button class="btn btn-sm btn-info">
+          <button class="btn btn-sm btn-info" (click)="openDetails(contentDetails, recipe)">
             <i class="fa fa-search"></i>Details</button>
             <button class="btn btn-sm btn-danger" (click)="openDelete(contentDelete, recipe)">
             <i class="fa fa-remove"></i>Delete</button>
@@ -29,16 +29,23 @@
     </table>
   </div>
 
- <!-- <ng-template #content let-modal>
+  <ng-template #contentDetails let-modal>
     <div class="modal-header">
-      <h4 class="modal-title" id="modal-basic-title">What type of recipe would you like to add:</h4>
-      <button mat-raised-button color="accent" type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <h4 class="modal-title" id="modal-basic-title1">Recipe Details</h4>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
         <span aria-hidden="true">&times;</span>
       </button>
     </div>
-    <button mat-raised-button color="primary" class="border-button"><a class="navbar-brand" href="/add-new">Personal/Manual Recipe</a></button>
-    <button mat-raised-button color="primary" class="border-button"><a class="navbar-brand" href="/import-recipe">Import Recipe from Website</a></button>
-  </ng-template>-->
+    <div class="modal-body">
+    
+      
+
+
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Close</button>
+    </div>
+  </ng-template>
 
   <ng-template #contentDelete let-modal>
     <div class="modal-header">

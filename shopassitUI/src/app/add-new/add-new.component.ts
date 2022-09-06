@@ -173,20 +173,17 @@ export class AddNewComponent implements OnInit {
     //TODO: for each ingredient in ingredients[], post a RecipeIngredientEntryDto to database
     for (let i = 0; i < ingredientIds.length; i++) {
       let ingredientId: number = ingredientIds[i];
-      this.recipeService.addRecipeIngredientDto(recipeId, ingredientId).subscribe((result) => {
-        this.ngOnInit(); //reload the table
-      });
+      this.recipeService.addRecipeIngredient(recipeId, ingredientId).subscribe();
       console.log("Ingredient Id:", [i], ",", ingredientId);
     }
 
     //TODO: for each step in steps[], post a RecipeIngredientEntryDto to database
     for (let i = 0; i < stepIds.length; i++) {
       let stepId: number = stepIds[i];
-      this.recipeService.addRecipeStepDto(recipeId, stepId).subscribe((result) => {
-        this.ngOnInit(); //reload the table
-      });
+      this.recipeService.addRecipeStep(recipeId, stepId).subscribe();
       console.log("Step Id:", [i], ",", stepId);
     }
+    
     //TODO: reload to recipe page
     this.router.navigate(['/recipes']);
 
