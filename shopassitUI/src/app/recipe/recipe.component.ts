@@ -70,7 +70,7 @@ export class RecipeComponent implements OnInit {
      size: 'lg'
    });
    this.recipeNameDisplay = recipe.name;
-   console.log(recipe.id, recipe.name, recipe.ingredients, recipe.steps);
+   console.log(recipe.ingredients[0]);
  }
 
   openDelete(targetModal: any, recipe: Recipe) {

@@ -1,12 +1,12 @@
 package com.shopassist.shopassitapi.controllers;
 
-import com.shopassist.shopassitapi.data.IngredientEntryRepository;
+import com.shopassist.shopassitapi.data.IngredientRepository;
 import com.shopassist.shopassitapi.data.RecipeRepository;
 import com.shopassist.shopassitapi.data.StepRepository;
-import com.shopassist.shopassitapi.models.IngredientEntry;
+import com.shopassist.shopassitapi.models.Ingredient;
 import com.shopassist.shopassitapi.models.Recipe;
 import com.shopassist.shopassitapi.models.Step;
-import com.shopassist.shopassitapi.models.dto.RecipeIngredientEntryDTO;
+import com.shopassist.shopassitapi.models.dto.RecipeIngredientDTO;
 import com.shopassist.shopassitapi.models.dto.RecipeStepDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -22,7 +22,7 @@ public class  RecipeController {
     private RecipeRepository recipeRepository;
 
     @Autowired
-    private IngredientEntryRepository ingredientEntryRepository;
+    private IngredientRepository ingredientRepository;
 
     @Autowired
     private StepRepository stepRepository;
@@ -48,17 +48,17 @@ public class  RecipeController {
     }
 
     @PostMapping("recipes/{id}/addIngredients")
-    public void addIngredientsToRecipe(@PathVariable("id") Integer recipeId, @RequestBody Integer ingredientEntryId) {
+    public void addIngredientsToRecipe(@PathVariable("id") Integer recipeId, @RequestBody Integer ingredientId) {
         Optional<Recipe> recipeResult = recipeRepository.findById(recipeId);
         Recipe recipe = recipeResult.get();
-        Optional<IngredientEntry> ingredientEntryResult = ingredientEntryRepository.findById(ingredientEntryId);
-        IngredientEntry ingredientEntry = ingredientEntryResult.get();
-        RecipeIngredientEntryDTO recipeIngredientEntryDTO = new RecipeIngredientEntryDTO();
-        recipeIngredientEntryDTO.setRecipe(recipe);
-        recipeIngredientEntryDTO.setIngredientEntry(ingredientEntry);
-        recipe.addIngredientEntry(ingredientEntry);
+        Optional<Ingredient> ingredientResult = ingredientRepository.findById(ingredientId);
+        Ingredient ingredient = ingredientResult.get();
+        RecipeIngredientDTO recipeIngredientDTO = new RecipeIngredientDTO();
+        recipeIngredientDTO.setRecipe(recipe);
+        recipeIngredientDTO.setIngredient(ingredient);
+        recipe.addIngredient(ingredient);
         recipeRepository.save(recipe);
-        ingredientEntryRepository.save(ingredientEntry);
+        ingredientRepository.save(ingredient);
     }
 
     @PostMapping("recipes/{id}/addSteps")

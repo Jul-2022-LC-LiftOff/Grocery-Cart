@@ -14,7 +14,7 @@ public class Recipe {
     private String name;
 
     @ManyToMany
-    private final List<IngredientEntry> ingredientEntries = new ArrayList<>();
+    private final List<Ingredient> ingredients = new ArrayList<>();
 
     @ManyToMany
     private final List<Step> steps = new ArrayList<>();
@@ -50,12 +50,12 @@ public class Recipe {
         this.name = name;
     }
 
-    public List<IngredientEntry> getIngredientEntries() {
-        return ingredientEntries;
+    public List<Ingredient> getIngredients() {
+        return ingredients;
     }
 
-    public void addIngredientEntry(IngredientEntry ingredientEntry) {
-        this.ingredientEntries.add(ingredientEntry);
+    public void addIngredient(Ingredient ingredient) {
+        this.ingredients.add(ingredient);
     }
 
     public List<Step> getSteps() {

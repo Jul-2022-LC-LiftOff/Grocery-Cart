@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-public class IngredientEntry {
+public class Ingredient {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -15,16 +15,15 @@ public class IngredientEntry {
 
     private String unit;
 
-
     private String ingredient;
 
-    @ManyToMany(mappedBy = "ingredientEntries")
+    @ManyToMany(mappedBy = "ingredients")
     private final List<Recipe> recipes = new ArrayList<>();
 
-    public IngredientEntry() {
+    public Ingredient() {
     }
 
-    public IngredientEntry(Integer id, Integer amount, String unit, String ingredient) {
+    public Ingredient(Integer id, Integer amount, String unit, String ingredient) {
         this.id = id;
         this.amount = amount;
         this.unit = unit;

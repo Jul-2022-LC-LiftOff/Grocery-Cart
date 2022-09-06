@@ -1,13 +1,11 @@
 package com.shopassist.shopassitapi.controllers;
 
 import com.shopassist.shopassitapi.data.StepRepository;
-import com.shopassist.shopassitapi.models.IngredientEntry;
 import com.shopassist.shopassitapi.models.Step;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
 
 @CrossOrigin
 @RestController
