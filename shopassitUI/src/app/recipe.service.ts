@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { map, Observable } from 'rxjs';
 import { Ingredient } from './ingredient/ingredient.component';
 import { Recipe } from './recipe/recipe.component';
 import { Step } from './step/step.component';
@@ -17,29 +17,35 @@ export class RecipeService {
     return this.http.get<Recipe[]>(url);
   }
 
+  /*
+  public getRecipeById(id: number): Observable<Recipe> {
+    const url = 'http://localhost:8080/recipes/' + id;
+    return this.http.get<Recipe>(url).pipe(
+      map((recipe: Recipe) => {
+        return ({
+          id: recipe.id,
+          name: recipe.name,
+          ingredients: recipe.ingredients,
+          steps: recipe.steps,
+          link: recipe.link
+        });
+      }))
+  }
+  
   public getRecipeById(id: number): Observable<Recipe> {
     const url = 'http://localhost:8080/recipes/' + id;
     return this.http.get<Recipe>(url);
   }
+  */
 
   public getIngredients(): Observable<Ingredient[]> {
     const url = "http://localhost:8080/ingredientEntries";
     return this.http.get<Ingredient[]>(url);
   }
 
-  public getIngredientById(id: number): Observable<Ingredient> {
-    const url = 'http://localhost:8080/ingredientEntries/' + id;
-    return this.http.get<Ingredient>(url);
-  }
-
   public getSteps(): Observable<Step[]> {
     const url = "http://localhost:8080/steps";
     return this.http.get<Step[]>(url);
-  }
-
-  public getStepById(id: number): Observable<Step> {
-    const url = 'http://localhost:8080/steps/' + id;
-    return this.http.get<Step>(url);
   }
 
   public addRecipe(recipe: Recipe): Observable<Recipe> {
@@ -69,7 +75,7 @@ export class RecipeService {
     return this.http.post<Step>(url, stepId);
   }
 
-  public deleteRecipe(id: number): Observable<unknown> {
+  public deleteRecipe(id: number): Observable<{}> {
     const deleteURL = 'http://localhost:8080/recipes/' + id + '/delete';
     return this.http.delete(deleteURL);
   }
