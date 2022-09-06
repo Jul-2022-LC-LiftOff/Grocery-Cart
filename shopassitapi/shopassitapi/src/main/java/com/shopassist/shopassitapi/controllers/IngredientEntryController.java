@@ -21,11 +21,6 @@ public class IngredientEntryController {
         return ingredientEntryRepository.findAll();
     }
 
-    @GetMapping("ingredientEntries/{id}")
-    public Optional<IngredientEntry> getIngredientEntryById(@PathVariable("id") Integer id) {
-        return ingredientEntryRepository.findById(id);
-    }
-
     @PostMapping("ingredientEntries/addnew")
     public void addIngredientEntry(@RequestBody IngredientEntry ingredientEntry) {
         ingredientEntryRepository.save(ingredientEntry);

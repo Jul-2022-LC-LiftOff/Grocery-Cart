@@ -21,11 +21,6 @@ public class StepController {
         return stepRepository.findAll();
     }
 
-    @GetMapping("steps/{id}")
-    public Optional<Step> getIngredientEntryById(@PathVariable("id") Integer id) {
-        return stepRepository.findById(id);
-    }
-
     @PostMapping("steps/addnew")
     public void addStep(@RequestBody Step step) {
         stepRepository.save(step);
