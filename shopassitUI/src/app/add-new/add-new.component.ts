@@ -170,14 +170,14 @@ export class AddNewComponent implements OnInit {
     console.log("steps", stepIds, stepIds.length);
     
 
-    //TODO: for each ingredient in ingredients[], post a RecipeIngredientEntryDto to database
+    //TODO: for each ingredient in ingredients[], post a RecipeIngredientDto to database
     for (let i = 0; i < ingredientIds.length; i++) {
       let ingredientId: number = ingredientIds[i];
       this.recipeService.addRecipeIngredient(recipeId, ingredientId).subscribe();
       console.log("Ingredient Id:", [i], ",", ingredientId);
     }
 
-    //TODO: for each step in steps[], post a RecipeIngredientEntryDto to database
+    //TODO: for each step in steps[], post a RecipeStepDto to database
     for (let i = 0; i < stepIds.length; i++) {
       let stepId: number = stepIds[i];
       this.recipeService.addRecipeStep(recipeId, stepId).subscribe();

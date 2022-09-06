@@ -18,7 +18,7 @@ export class RecipeService {
   }
 
   public getIngredients(): Observable<Ingredient[]> {
-    const url = "http://localhost:8080/ingredientEntries";
+    const url = "http://localhost:8080/ingredients";
     return this.http.get<Ingredient[]>(url);
   }
 
@@ -33,7 +33,7 @@ export class RecipeService {
   }
 
   public addIngredient(ingredient: Ingredient): Observable<Ingredient> {
-    const url = "http://localhost:8080/ingredientEntries/addnew";
+    const url = "http://localhost:8080/ingredients/addnew";
     return this.http.post<Ingredient>(url, ingredient);
   }
 
