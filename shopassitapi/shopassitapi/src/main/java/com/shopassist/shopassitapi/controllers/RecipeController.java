@@ -55,11 +55,9 @@ public class  RecipeController {
     }
 
     @PostMapping("recipes/{id}/addIngredients")
-    public void addIngredientsToRecipe(@PathVariable("id") Integer recipeId, @RequestBody Integer ingredientId) {
+    public void addIngredientsToRecipe(@PathVariable("id") Integer recipeId, @RequestBody Ingredient ingredient) {
         Optional<Recipe> recipeResult = recipeRepository.findById(recipeId);
         Recipe recipe = recipeResult.get();
-        Optional<Ingredient> ingredientResult = ingredientRepository.findById(ingredientId);
-        Ingredient ingredient = ingredientResult.get();
         RecipeIngredientDTO recipeIngredientDTO = new RecipeIngredientDTO();
         recipeIngredientDTO.setRecipe(recipe);
         recipeIngredientDTO.setIngredient(ingredient);
@@ -69,11 +67,9 @@ public class  RecipeController {
     }
 
     @PostMapping("recipes/{id}/addSteps")
-    public void addStepsToRecipe(@PathVariable("id") Integer recipeId, @RequestBody Integer stepId) {
+    public void addStepsToRecipe(@PathVariable("id") Integer recipeId, @RequestBody Step step) {
         Optional<Recipe> recipeResult = recipeRepository.findById(recipeId);
         Recipe recipe = recipeResult.get();
-        Optional<Step> stepResult = stepRepository.findById(stepId);
-        Step step = stepResult.get();
         RecipeStepDTO recipeStepDTO = new RecipeStepDTO();
         recipeStepDTO.setRecipe(recipe);
         recipeStepDTO.setStep(step);
