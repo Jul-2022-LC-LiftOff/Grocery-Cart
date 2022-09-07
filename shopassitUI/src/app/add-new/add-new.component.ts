@@ -17,14 +17,16 @@ export class AddNewComponent implements OnInit {
 
   closeResult: string | undefined;
   recipeName: Recipe | undefined; //for adding Recipe to Db
-  ingredients: Ingredient[] = []; //for adding Ingredients to Db
-  steps: Step[] = []; //for adding Steps to Db
+  ingredients: Ingredient[] = []; //for adding Ingredients to Db (will not have id)
+  steps: Step[] = []; //for adding Steps to Db (will not have id)
   recipesFromDb: Recipe[] = []; //for getting Recipes from Db
   ingredientsFromDb: Ingredient[] = []; //for getting Ingredients from Db
   stepsFromDb: Step[] = []; //for getting Steps from Db
 
-  verifyIngredients: Ingredient[] = [];
+  ingredientsForRecipe: Ingredient[] = []; //for adding Ingredients to Recipe
+  stepsForRecipe: Step[] = []; //for adding Steps to Recipe
 
+  recipeId: number = 0;
 
   constructor(private httpClient: HttpClient, private modalService: NgbModal, private router: Router, private recipeService: RecipeService) { }
 
@@ -65,7 +67,6 @@ export class AddNewComponent implements OnInit {
     } else {
       //do nothing
     }
-    
   }
 
   addIngredientOrStep(content: any) {
@@ -141,53 +142,55 @@ export class AddNewComponent implements OnInit {
     //console.log(this.steps);
   }
 
-  onSubmit() {
-    
-    let recipeId = this.recipesFromDb[this.recipesFromDb.length-1].id;
-    console.log("Recipe Id", recipeId);
-    
-    //similar to recipeId, get all ingredient ids in their own array:
-    let ingredientIds: number[] = [];
-    for(let i = 0; i < this.ingredientsFromDb.length; i++) {
-      for(let j = 0; j < this.ingredients.length; j++) {
+  convertIngredients() {
+    for (let i = 0; i < this.ingredientsFromDb.length; i++){
+      for (let j = 0; j < this.ingredients.length; j++)
         if(this.ingredientsFromDb[i].amount == this.ingredients[j].amount && this.ingredientsFromDb[i].unit == this.ingredients[j].unit && this.ingredientsFromDb[i].ingredient == this.ingredients[j].ingredient) {
-            ingredientIds.push(this.ingredientsFromDb[i].id);
+          this.ingredientsForRecipe.push(this.ingredientsFromDb[i]);
         }
-      }
     }
-  
-    //similar to recipeId, get all step ids in their own array:
-    let stepIds: number[] = [];
-    for (let i = 0; i < this.stepsFromDb.length; i++) {
-      for (let j = 0; j < this.steps.length; j++) {
+  }
+
+  convertSteps() {
+    for (let i = 0; i < this.stepsFromDb.length; i++){
+      for (let j = 0; j < this.steps.length; j++)
         if(this.stepsFromDb[i].step == this.steps[j].step) {
-            stepIds.push(this.stepsFromDb[i].id);
+          this.stepsForRecipe.push(this.stepsFromDb[i]);
         }
-      }
     }
+  }
 
-    console.log("ingredients", ingredientIds, ingredientIds.length);
-    console.log("steps", stepIds, stepIds.length);
+  getRecipeId() {
+    this.recipeId = this.recipesFromDb[this.recipesFromDb.length-1].id;
+  }
+
+  onSubmit() {
+    this.getRecipeId();
+    console.log("Recipe Id", this.recipeId);
+    this.convertIngredients();
+    this.convertSteps();
+    console.log(this.ingredientsForRecipe);
+    console.log(this.stepsForRecipe);
+
     
-
+    
     //TODO: for each ingredient in ingredients[], post a RecipeIngredientDto to database
-    for (let i = 0; i < ingredientIds.length; i++) {
-      let ingredientId: number = ingredientIds[i];
-      this.recipeService.addRecipeIngredient(recipeId, ingredientId).subscribe();
-      console.log("Ingredient Id:", [i], ",", ingredientId);
+    for (let i = 0; i < this.ingredientsForRecipe.length; i++) {
+      this.recipeService.addRecipeIngredient(this.recipeId, this.ingredientsForRecipe[i]).subscribe(response => {
+        this.ngOnInit();
+      });
     }
 
     //TODO: for each step in steps[], post a RecipeStepDto to database
-    for (let i = 0; i < stepIds.length; i++) {
-      let stepId: number = stepIds[i];
-      this.recipeService.addRecipeStep(recipeId, stepId).subscribe();
-      console.log("Step Id:", [i], ",", stepId);
+    for (let i = 0; i < this.stepsForRecipe.length; i++) {
+      this.recipeService.addRecipeStep(this.recipeId, this.stepsForRecipe[i]).subscribe(response => {
+        this.ngOnInit();
+      });
     }
+
+    this.ngOnInit();
 
     //TODO: reload to recipe page
     this.router.navigate(['/recipes']);
-
-
   }
-  
 }
