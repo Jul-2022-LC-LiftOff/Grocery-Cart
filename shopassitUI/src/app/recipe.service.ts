@@ -42,13 +42,13 @@ export class RecipeService {
     return this.http.post<Step>(url, step);
   }
 
-  //needs to be fixed
+  //needs to be fixed?
   public addRecipeIngredient(recipeId: number, ingredientId: number): Observable<Ingredient> {
     const url = 'http://localhost:8080/recipes/' + recipeId + '/addIngredients';
     return this.http.post<Ingredient>(url, ingredientId);
   }
 
-  //needs to be fixed
+  //needs to be fixed?
   public addRecipeStep(recipeId: number, stepId: number): Observable<Step> {
     const url = 'http://localhost:8080/recipes/' + recipeId + '/addSteps';
     return this.http.post<Step>(url, stepId);
@@ -57,5 +57,10 @@ export class RecipeService {
   public deleteRecipe(id: number): Observable<{}> {
     const deleteURL = 'http://localhost:8080/recipes/' + id + '/delete';
     return this.http.delete(deleteURL);
+  }
+
+  public verifyIngredientsInRecipe(id: number): Observable<Ingredient[]> {
+    const url = 'http://localhost:8080/recipes/' + id + '/verifyIngredients';
+    return this.http.get<Ingredient[]>(url);
   }
 }

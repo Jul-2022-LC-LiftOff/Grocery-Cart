@@ -23,7 +23,7 @@ export class AddNewComponent implements OnInit {
   ingredientsFromDb: Ingredient[] = []; //for getting Ingredients from Db
   stepsFromDb: Step[] = []; //for getting Steps from Db
 
-
+  verifyIngredients: Ingredient[] = [];
 
 
   constructor(private httpClient: HttpClient, private modalService: NgbModal, private router: Router, private recipeService: RecipeService) { }
@@ -143,7 +143,7 @@ export class AddNewComponent implements OnInit {
 
   onSubmit(f: NgForm) {
     
-    let recipeId: number = this.recipesFromDb[this.recipesFromDb.length-1].id;
+    let recipeId = this.recipesFromDb[this.recipesFromDb.length-1].id;
     console.log("Recipe Id", recipeId);
     
     //similar to recipeId, get all ingredient ids in their own array:
@@ -183,7 +183,7 @@ export class AddNewComponent implements OnInit {
       this.recipeService.addRecipeStep(recipeId, stepId).subscribe();
       console.log("Step Id:", [i], ",", stepId);
     }
-    
+
     //TODO: reload to recipe page
     this.router.navigate(['/recipes']);
 

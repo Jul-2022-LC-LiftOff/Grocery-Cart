@@ -38,6 +38,7 @@
     </div>
     <div class="modal-body">
     <h2>{{recipeNameDisplay}}</h2>
+    <p>Id: {{idDisplay}}</p>
     <p>Ingredients:</p>
     <ul>
       <li *ngFor="let ingredient of ingredientsDisplay">{{ingredient.amount}} {{ingredient.unit}} {{ingredient.ingredient}}</li>

@@ -26,6 +26,7 @@ export class RecipeComponent implements OnInit {
   recipes: Recipe[] = [];
   closeResult: string | undefined;
   deleteId: number = 0;
+  idDisplay: number = 0;
   recipeNameDisplay: string | undefined;
   ingredientsDisplay: Ingredient[] = [];
   stepsDisplay: Step[] = [];
@@ -71,6 +72,7 @@ export class RecipeComponent implements OnInit {
      backdrop: 'static',
      size: 'lg'
    });
+   this.idDisplay = recipe.id;
    this.recipeNameDisplay = recipe.name;
    this.ingredientsDisplay = recipe.ingredients;
    this.stepsDisplay = recipe.steps;
