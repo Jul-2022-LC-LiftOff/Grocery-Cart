@@ -32,6 +32,13 @@ public class  RecipeController {
         return recipeRepository.findAll();
     }
 
+    @GetMapping("recipes/{id}")
+    public Recipe getRecipeById(@PathVariable("id") Integer recipeId) {
+        Optional<Recipe> recipeResult = recipeRepository.findById(recipeId);
+        Recipe recipe = recipeResult.get();
+        return recipe;
+    }
+
     @PostMapping("recipes/addnew")
     public void addRecipe(@RequestBody Recipe recipe) {
         recipeRepository.save(recipe);
@@ -75,4 +82,19 @@ public class  RecipeController {
         stepRepository.save(step);
     }
 
+    @GetMapping("recipes/{id}/verifyIngredients")
+    public List<Ingredient> verifyIngredientsInRecipe(@PathVariable("id") Integer recipeId) {
+        Optional<Recipe> recipeResult = recipeRepository.findById(recipeId);
+        Recipe recipe = recipeResult.get();
+        List<Ingredient> ingredients = recipe.getIngredients();
+        return ingredients;
+    }
+
+    @GetMapping("recipes/{id}/verifySteps")
+    public List<Step> verifyStepsInRecipe(@PathVariable("id") Integer recipeId) {
+        Optional<Recipe> recipeResult = recipeRepository.findById(recipeId);
+        Recipe recipe = recipeResult.get();
+        List<Step> steps = recipe.getSteps();
+        return steps;
+    }
 }

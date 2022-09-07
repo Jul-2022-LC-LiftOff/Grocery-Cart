@@ -1,11 +1,13 @@
 package com.shopassist.shopassitapi.controllers;
 
 import com.shopassist.shopassitapi.data.StepRepository;
+import com.shopassist.shopassitapi.models.Ingredient;
 import com.shopassist.shopassitapi.models.Step;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @CrossOrigin
 @RestController
@@ -17,6 +19,13 @@ public class StepController {
     @GetMapping("steps")
     public List<Step> getSteps() {
         return stepRepository.findAll();
+    }
+
+    @GetMapping("steps/{id}")
+    public Step getStepById(@PathVariable("id") Integer stepId) {
+        Optional<Step> stepResult = stepRepository.findById(stepId);
+        Step step = stepResult.get();
+        return step;
     }
 
     @PostMapping("steps/addnew")

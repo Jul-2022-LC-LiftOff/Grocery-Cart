@@ -2,10 +2,12 @@ package com.shopassist.shopassitapi.controllers;
 
 import com.shopassist.shopassitapi.data.IngredientRepository;
 import com.shopassist.shopassitapi.models.Ingredient;
+import com.shopassist.shopassitapi.models.Recipe;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @CrossOrigin
 @RestController
@@ -17,6 +19,13 @@ public class IngredientController {
     @GetMapping("ingredients")
     public List<Ingredient> getIngredient() {
         return ingredientRepository.findAll();
+    }
+
+    @GetMapping("ingredients/{id}")
+    public Ingredient getIngredientById(@PathVariable("id") Integer ingredientId) {
+        Optional<Ingredient> ingredientResult = ingredientRepository.findById(ingredientId);
+        Ingredient ingredient = ingredientResult.get();
+        return ingredient;
     }
 
     @PostMapping("ingredients/addnew")
