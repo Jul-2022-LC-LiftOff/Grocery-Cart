@@ -59,8 +59,28 @@ export class RecipeService {
     return this.http.delete(deleteURL);
   }
 
+  public getRecipeById(id: number): Observable<Recipe> {
+    const url = 'http://localhost:8080/recipes/' + id;
+    return this.http.get<Recipe>(url);
+  }
+
+  public getIngredientById(id: number): Observable<Ingredient> {
+    const url = 'http://localhost:8080/ingredients/' + id;
+    return this.http.get<Ingredient>(url);
+  }
+
+  public getStepById(id: number): Observable<Step> {
+    const url = 'http://localhost:8080/steps/' + id;
+    return this.http.get<Step>(url);
+  }
+
   public verifyIngredientsInRecipe(id: number): Observable<Ingredient[]> {
     const url = 'http://localhost:8080/recipes/' + id + '/verifyIngredients';
     return this.http.get<Ingredient[]>(url);
+  }
+
+  public verifyStepsInRecipe(id: number): Observable<Step[]> {
+    const url = 'http://localhost:8080/recipes/' + id + '/verifySteps';
+    return this.http.get<Step[]>(url);
   }
 }
