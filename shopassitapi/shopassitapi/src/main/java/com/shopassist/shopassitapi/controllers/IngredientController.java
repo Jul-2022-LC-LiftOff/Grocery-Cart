@@ -22,8 +22,8 @@ public class IngredientController {
     }
 
     @GetMapping("ingredients/{id}")
-    public Ingredient getIngredientById(@PathVariable("id") Integer ingredientId) {
-        Optional<Ingredient> ingredientResult = ingredientRepository.findById(ingredientId);
+    public Ingredient getIngredientById(@PathVariable("id") Integer id) {
+        Optional<Ingredient> ingredientResult = ingredientRepository.findById(id);
         Ingredient ingredient = ingredientResult.get();
         return ingredient;
     }

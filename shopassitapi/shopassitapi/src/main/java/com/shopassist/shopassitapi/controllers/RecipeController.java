@@ -33,8 +33,8 @@ public class  RecipeController {
     }
 
     @GetMapping("recipes/{id}")
-    public Recipe getRecipeById(@PathVariable("id") Integer recipeId) {
-        Optional<Recipe> recipeResult = recipeRepository.findById(recipeId);
+    public Recipe getRecipeById(@PathVariable("id") Integer id) {
+        Optional<Recipe> recipeResult = recipeRepository.findById(id);
         Recipe recipe = recipeResult.get();
         return recipe;
     }
@@ -83,16 +83,16 @@ public class  RecipeController {
     }
 
     @GetMapping("recipes/{id}/verifyIngredients")
-    public List<Ingredient> verifyIngredientsInRecipe(@PathVariable("id") Integer recipeId) {
-        Optional<Recipe> recipeResult = recipeRepository.findById(recipeId);
+    public List<Ingredient> verifyIngredientsInRecipe(@PathVariable("id") Integer id) {
+        Optional<Recipe> recipeResult = recipeRepository.findById(id);
         Recipe recipe = recipeResult.get();
         List<Ingredient> ingredients = recipe.getIngredients();
         return ingredients;
     }
 
     @GetMapping("recipes/{id}/verifySteps")
-    public List<Step> verifyStepsInRecipe(@PathVariable("id") Integer recipeId) {
-        Optional<Recipe> recipeResult = recipeRepository.findById(recipeId);
+    public List<Step> verifyStepsInRecipe(@PathVariable("id") Integer id) {
+        Optional<Recipe> recipeResult = recipeRepository.findById(id);
         Recipe recipe = recipeResult.get();
         List<Step> steps = recipe.getSteps();
         return steps;

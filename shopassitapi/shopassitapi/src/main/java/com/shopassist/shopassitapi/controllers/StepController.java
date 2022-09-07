@@ -22,8 +22,8 @@ public class StepController {
     }
 
     @GetMapping("steps/{id}")
-    public Step getStepById(@PathVariable("id") Integer stepId) {
-        Optional<Step> stepResult = stepRepository.findById(stepId);
+    public Step getStepById(@PathVariable("id") Integer id) {
+        Optional<Step> stepResult = stepRepository.findById(id);
         Step step = stepResult.get();
         return step;
     }
