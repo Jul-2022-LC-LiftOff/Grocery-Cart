@@ -95,63 +95,40 @@ export class AddNewComponent implements OnInit {
     //console.log(this.recipeName);
   }
 
-  isIngredientInDatabase(ingredient: Ingredient): boolean {
-    let isIngredientInDatabase: boolean = false;
-    for (let i = 0; i < this.ingredientsFromDb.length; i++){
-          if(this.ingredientsFromDb[i].amount == ingredient.amount && this.ingredientsFromDb[i].unit == ingredient.unit && this.ingredientsFromDb[i].ingredient == ingredient.ingredient) {
-            isIngredientInDatabase = true;
-          }
-        }
-    return isIngredientInDatabase;
-  }
-
-  isStepInDatabase(step: Step): boolean {
-    let isStepInDatabase: boolean = false;
-    for (let i = 0; i < this.stepsFromDb.length; i++) {
-      if(this.stepsFromDb[i].step == step.step) {
-        isStepInDatabase = true;
-      }
-    }
-    return isStepInDatabase;
-  }
-
-  addIngredientToRecipeArray(ingredient: Ingredient) {
-    for(let i = 0; i < this.ingredientsFromDb.length; i++){
-      if(this.ingredientsFromDb[i].amount == ingredient.amount && this.ingredientsFromDb[i].unit == ingredient.unit && this.ingredientsFromDb[i].ingredient == ingredient.ingredient) {
-        this.recipeService.getIngredientById(this.ingredientsFromDb[i].id).subscribe(response => {
-          this.ingredients.push(response);
-        });
-      }
-    }
-  }
-
-  addStepToRecipeArray(step: Step) {
-    for(let i = 0; i < this.stepsFromDb.length; i++) {
-      if(this.stepsFromDb[i].step == step.step) {
-        this.recipeService.getStepById(this.stepsFromDb[i].id).subscribe(response => {
-          this.steps.push(response);
-        })
-      }
-    }
-  }
-
   onAddIngredient(f: NgForm) {
-    this.addIngredientToRecipeArray(f.value);
-    let isIngredientInDatabase : boolean = this.isIngredientInDatabase(f.value);
+    this.ingredients.push(f.value);
+    let isIngredientInDatabase : boolean = false;
+
+    //TODO if f.value already exists in the database, don't add to db. Otherwise, add to db.
+    for(let i = 0; i < this.ingredientsFromDb.length; i++){
+      if(this.ingredientsFromDb[i].amount == f.value.amount && this.ingredientsFromDb[i].unit == f.value.unit && this.ingredientsFromDb[i].ingredient == f.value.ingredient) {
+        isIngredientInDatabase = true;
+      }
+    }
+
     if(isIngredientInDatabase == true) {
       //do nothing
     } else {
         this.recipeService.addIngredient(f.value).subscribe((result) => {
           this.ngOnInit(); //reload the table
-        });    
+        });
+            
     }
     this.modalService.dismissAll(); //dismiss the modal
-    console.log(this.ingredients);
+    //console.log(this.ingredients);
   }
 
   onAddStep(f: NgForm) {
-    this.addStepToRecipeArray(f.value);
-    let isStepInDatabase : boolean = this.isStepInDatabase(f.value);
+    this.steps.push(f.value);
+    let isStepInDatabase : boolean = false;
+
+    //TODO if f.value already exists in the database, don't add to db. Otherwise, add to db.
+    for(let i = 0; i < this.stepsFromDb.length; i++){
+      if(this.stepsFromDb[i].step == f.value.step) {
+        isStepInDatabase = true;
+      }
+    }
+
     if(isStepInDatabase == true) {
       //do nothing
     } else {
@@ -161,10 +138,10 @@ export class AddNewComponent implements OnInit {
     }
     
     this.modalService.dismissAll(); //dismiss the modal
-    console.log(this.steps);
+    //console.log(this.steps);
   }
 
-  onSubmit(f: NgForm) {
+  onSubmit() {
     
     let recipeId = this.recipesFromDb[this.recipesFromDb.length-1].id;
     console.log("Recipe Id", recipeId);
