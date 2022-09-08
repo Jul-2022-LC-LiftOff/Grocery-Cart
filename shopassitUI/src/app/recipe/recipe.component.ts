@@ -76,14 +76,6 @@ export class RecipeComponent implements OnInit {
    this.recipeNameDisplay = recipe.name;
    this.ingredientsDisplay = recipe.ingredients;
    this.stepsDisplay = recipe.steps;
-   this.recipeService.verifyIngredientsInRecipe(recipe.id).subscribe(response => {
-    console.log("VerifyIngredients");
-    console.log(response);
-   });
-   this.recipeService.verifyStepsInRecipe(recipe.id).subscribe(response => {
-    console.log("VerifySteps");
-    console.log(response);
-   });
  }
 
   openDelete(targetModal: any, recipe: Recipe) {
