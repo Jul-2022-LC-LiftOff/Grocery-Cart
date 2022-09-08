@@ -112,7 +112,6 @@ export class AddNewComponent implements OnInit {
     } else {
         this.recipeService.addIngredient(f.value).subscribe();    
     }
-    this.recipeService
     this.modalService.dismissAll(); //dismiss the modal
   }
 
