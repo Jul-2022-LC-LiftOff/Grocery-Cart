@@ -43,15 +43,15 @@ export class RecipeService {
   }
 
   //needs to be fixed?
-  public addRecipeIngredient(recipeId: number, ingredient: Ingredient): Observable<Ingredient> {
+  public addRecipeIngredient(recipeId: number, ingredients: Ingredient[]): Observable<Ingredient[]> {
     const url = 'http://localhost:8080/recipes/' + recipeId + '/addIngredients';
-    return this.http.post<Ingredient>(url, ingredient);
+    return this.http.post<Ingredient[]>(url, ingredients);
   }
 
   //needs to be fixed?
-  public addRecipeStep(recipeId: number, step: Step): Observable<Step> {
+  public addRecipeStep(recipeId: number, steps: Step[]): Observable<Step[]> {
     const url = 'http://localhost:8080/recipes/' + recipeId + '/addSteps';
-    return this.http.post<Step>(url, step);
+    return this.http.post<Step[]>(url, steps);
   }
 
   public deleteRecipe(id: number): Observable<{}> {

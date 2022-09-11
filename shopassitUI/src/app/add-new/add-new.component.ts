@@ -89,7 +89,10 @@ export class AddNewComponent implements OnInit {
 
   onAddRecipeName(f: NgForm) {
     this.recipeName = f.value;
-    this.recipeService.addRecipe(f.value).subscribe();
+    this.recipeService.addRecipe(f.value).subscribe(response => {
+      this.ngOnInit();
+    }
+  );
     this.modalService.dismissAll(); //dismiss the modal
     //console.log(this.recipeName);
   }
@@ -108,7 +111,10 @@ export class AddNewComponent implements OnInit {
     if(isIngredientInDatabase == true) {
       //do nothing
     } else {
-        this.recipeService.addIngredient(f.value).subscribe();    
+        this.recipeService.addIngredient(f.value).subscribe(response => {
+          this.ngOnInit();
+        }
+      );    
     }
     this.modalService.dismissAll(); //dismiss the modal
   }
@@ -127,7 +133,10 @@ export class AddNewComponent implements OnInit {
     if(isStepInDatabase == true) {
       //do nothing
     } else {
-        this.recipeService.addStep(f.value).subscribe();
+        this.recipeService.addStep(f.value).subscribe(response => {
+          this.ngOnInit();
+        }
+      );
     }
     
     this.modalService.dismissAll(); //dismiss the modal
@@ -165,14 +174,10 @@ export class AddNewComponent implements OnInit {
     console.log(this.stepsForRecipe);
 
     //TODO: for each ingredient in ingredients[], post a RecipeIngredientDto to database
-    for (let i = 0; i < this.ingredientsForRecipe.length; i++) {
-      this.recipeService.addRecipeIngredient(this.recipeId, this.ingredientsForRecipe[i]).subscribe();
-    }
+    this.recipeService.addRecipeIngredient(this.recipeId, this.ingredientsForRecipe).subscribe();
 
     //TODO: for each step in steps[], post a RecipeStepDto to database
-    for (let i = 0; i < this.stepsForRecipe.length; i++) {
-      this.recipeService.addRecipeStep(this.recipeId, this.stepsForRecipe[i]).subscribe();
-    }
+    this.recipeService.addRecipeStep(this.recipeId, this.stepsForRecipe).subscribe();
 
     this.ngOnInit();
 

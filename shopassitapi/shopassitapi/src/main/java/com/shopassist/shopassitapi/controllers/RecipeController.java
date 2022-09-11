@@ -55,42 +55,30 @@ public class  RecipeController {
     }
 
     @PostMapping("recipes/{id}/addIngredients")
-    public void addIngredientsToRecipe(@PathVariable("id") Integer recipeId, @RequestBody Ingredient ingredient) {
+    public void addIngredientsToRecipe(@PathVariable("id") Integer recipeId, @RequestBody Ingredient[] ingredients) {
         Optional<Recipe> recipeResult = recipeRepository.findById(recipeId);
         Recipe recipe = recipeResult.get();
-        RecipeIngredientDTO recipeIngredientDTO = new RecipeIngredientDTO();
-        recipeIngredientDTO.setRecipe(recipe);
-        recipeIngredientDTO.setIngredient(ingredient);
-        recipe.addIngredient(ingredient);
-        recipeRepository.save(recipe);
-        ingredientRepository.save(ingredient);
+        for(int i = 0; i < ingredients.length; i++) {
+            RecipeIngredientDTO recipeIngredientDTO = new RecipeIngredientDTO();
+            recipeIngredientDTO.setRecipe(recipe);
+            recipeIngredientDTO.setIngredient(ingredients[i]);
+            recipe.addIngredient(ingredients[i]);
+            recipeRepository.save(recipe);
+            ingredientRepository.save(ingredients[i]);
+        }
     }
 
     @PostMapping("recipes/{id}/addSteps")
-    public void addStepsToRecipe(@PathVariable("id") Integer recipeId, @RequestBody Step step) {
+    public void addStepsToRecipe(@PathVariable("id") Integer recipeId, @RequestBody Step[] steps) {
         Optional<Recipe> recipeResult = recipeRepository.findById(recipeId);
         Recipe recipe = recipeResult.get();
-        RecipeStepDTO recipeStepDTO = new RecipeStepDTO();
-        recipeStepDTO.setRecipe(recipe);
-        recipeStepDTO.setStep(step);
-        recipe.addStep(step);
-        recipeRepository.save(recipe);
-        stepRepository.save(step);
-    }
-
-    @GetMapping("recipes/{id}/verifyIngredients")
-    public List<Ingredient> verifyIngredientsInRecipe(@PathVariable("id") Integer id) {
-        Optional<Recipe> recipeResult = recipeRepository.findById(id);
-        Recipe recipe = recipeResult.get();
-        List<Ingredient> ingredients = recipe.getIngredients();
-        return ingredients;
-    }
-
-    @GetMapping("recipes/{id}/verifySteps")
-    public List<Step> verifyStepsInRecipe(@PathVariable("id") Integer id) {
-        Optional<Recipe> recipeResult = recipeRepository.findById(id);
-        Recipe recipe = recipeResult.get();
-        List<Step> steps = recipe.getSteps();
-        return steps;
+        for(int i = 0; i < steps.length; i++) {
+            RecipeStepDTO recipeStepDTO = new RecipeStepDTO();
+            recipeStepDTO.setRecipe(recipe);
+            recipeStepDTO.setStep(steps[i]);
+            recipe.addStep(steps[i]);
+            recipeRepository.save(recipe);
+            stepRepository.save(steps[i]);
+        }
     }
 }
