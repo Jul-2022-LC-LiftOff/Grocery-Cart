@@ -64,10 +64,11 @@ import { authInterceptorProviders } from './_helpers/auth.interceptor';
     MatSidenavModule
   ],
 
-//   providers: [
-//     {provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: {appearance: 'fill'}}
-//   ],
-  providers: [authInterceptorProviders],
+  providers: [
+    {provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: {appearance: 'fill'}},
+    authInterceptorProviders,
+  ],
+//   providers: [authInterceptorProviders],
   bootstrap: [AppComponent]
 
 
