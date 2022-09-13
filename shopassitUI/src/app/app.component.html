@@ -1,0 +1,46 @@
+<mat-toolbar color="primary">
+  <div id="logo">
+    <!-- #docregion mat-menu-trigger-for -->
+ <button mat-button [matMenuTriggerFor]="menu"> <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+  <mat-icon>menu</mat-icon>
+ </button></button>
+ <!-- #enddocregion mat-menu-trigger-for -->
+ <mat-menu #menu="matMenu">
+  <button mat-nav-list><a href="/list">Shopping List</a></button><br>
+  <button mat-button><a href="/recipes">recipes</a></button><br>
+  <button mat-button><a href="/faq">FAQ</a></button>
+  
+ </mat-menu>
+  
+     <a href="\home">
+      <img  src="assets/images/ShopAssist.png">
+    </a>
+  
+  
+  
+  
+  
+    <!-- <span class="example-spacer"></span>
+    <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+      <mat-icon>favorite</mat-icon>
+    </button>
+    <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+      <mat-icon>share</mat-icon>
+    </button> -->
+  </div>
+  
+  <div id="login-buttons">
+    <div class="col-sm" id="new-users-button">
+      <a mat-raised-button color="primary" href="/register">New Users</a>
+    </div>
+    &nbsp;
+  
+    <div class="col-sm" id="login-button">
+      <a mat-raised-button color="primary" href="/login">Login</a>
+    </div>
+    &nbsp;
+  
+  </div>
+  
+ </mat-toolbar>
+ <router-outlet></router-outlet>

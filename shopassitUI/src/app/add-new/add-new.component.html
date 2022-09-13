@@ -1,0 +1,132 @@
+<div>
+  <h4 class="modal-title" id="modal-basic-title">New Recipe</h4>
+</div>
+<br>
+  
+<div class="form-group">
+  <p>Recipe Name: <b>{{recipeName?.name}}</b></p>
+  <div>
+    <button mat-raised-button color="accent" (click)="addRecipeName(recipeContent)">+ Add Recipe Name</button>
+  </div>
+  <br>
+  <p>Ingredients:</p>
+  <ul>
+    <li *ngFor="let ingredient of ingredients">{{ingredient.amount}} {{ingredient.unit}} {{ingredient.ingredient}} <button (click)="openRemoveIngredient(contentRemoveIngredient, ingredient)">Remove</button></li>
+  </ul>
+  <div>
+    <button mat-raised-button color="accent" (click)="addIngredientOrStep(ingredientContent)">+ Add Ingredient</button>
+  </div>
+  <br>
+  <p>Steps:</p>  
+  <ol>
+    <li *ngFor="let step of steps">{{step.step}} <button (click)="openRemoveStep(contentRemoveStep, step)">Remove</button></li>
+  </ol>
+  <div>
+    <button mat-raised-button color="accent" (click)="addIngredientOrStep(stepContent)">+ Add Step</button>
+  </div>
+  <br>
+  <div>
+    <button mat-raised-button color="primary" class="border-button" type="submit" (click)="onSubmit()">Submit</button>
+  </div>
+
+</div>
+  
+  
+  <ng-template #recipeContent let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">Add Recipe:</h4>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <form #f="ngForm" (ngSubmit)="onAddRecipeName(f)" novalidate>
+      <label for="name">Recipe Name</label>
+      <div>
+        <input id="name" name="name" ngModel />
+      </div>
+      <div class="border text-center">
+        <button data-dismiss="modal" class="btn btn-info">Add</button>
+      </div>
+    </form>
+  </ng-template>
+  
+    <ng-template #ingredientContent let-modal>
+      <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">Add Ingredient:</h4>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <form #f="ngForm" (ngSubmit)="onAddIngredient(f)" novalidate>
+        <label for="name">Amount</label>
+        <div>
+          <input id="amount" name="amount" ngModel />
+        </div>
+        <label for="name">Unit</label>
+        <div>
+          <input id="unit" name="unit" ngModel />
+        </div>
+        <label for="name">Ingredient</label>
+        <div>
+          <input id="ingredient" name="ingredient" ngModel />
+        </div>
+        <div class="border text-center">
+          <button data-dismiss="modal" class="btn btn-info">Add</button>
+        </div>
+      </form>  
+    </ng-template>
+  
+    <ng-template #stepContent let-modal>
+      <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">Add Step:</h4>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <form #f="ngForm" (ngSubmit)="onAddStep(f)" novalidate>
+        <div>
+          <input id="step" name="step" ngModel />
+        </div>
+        <div class="border text-center">
+          <button data-dismiss="modal" class="btn btn-info">Add</button>
+        </div>
+      </form>
+    </ng-template>
+
+    <ng-template #contentRemoveIngredient let-modal>
+      <div class="modal-header">
+        <h4 class="modal-title">Confirm Delete</h4>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <h6>Are you sure you want to delete this ingredient.</h6>
+        <div class="border text-center">
+          <button data-dismiss="modal" class="btn btn-danger" (click)="onRemoveIngredient()">Yes, Delete!</button>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Cancel</button>
+      </div>
+    </ng-template>
+
+    <ng-template #contentRemoveStep let-modal>
+      <div class="modal-header">
+        <h4 class="modal-title">Confirm Delete</h4>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <h6>Are you sure you want to delete this step.</h6>
+        <div class="border text-center">
+          <button data-dismiss="modal" class="btn btn-danger" (click)="onRemoveStep()">Yes, Delete!</button>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Cancel</button>
+      </div>
+    </ng-template>
+
+    
