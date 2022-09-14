@@ -7,7 +7,6 @@ import { ImportRecipeComponent } from './import-recipe/import-recipe.component';
 import { IngredientComponent } from './ingredient/ingredient.component';
 import { RecipeComponent } from './recipe/recipe.component';
 import { StepComponent } from './step/step.component';
-import { CreateUserComponent } from './create-user/create-user.component';
 import { LoginComponent } from './login/login.component';
 import { ListItemComponent } from './list-item/list-item.component';
 import { RegisterComponent } from './register/register.component';
@@ -26,7 +25,6 @@ const routes: Routes = [
   {path: 'list', component: ListItemComponent},
   {path: 'faq', component: FaqComponent},
   {path: '', component: HomeComponent},
-  {path: 'create-user', component: CreateUserComponent},
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent},
   {path: 'profile', component: ProfileComponent},
