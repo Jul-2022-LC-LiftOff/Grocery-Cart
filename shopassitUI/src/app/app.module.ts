@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { RecipeComponent } from './recipe/recipe.component';
+import { FaqComponent } from './faq/faq.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { IngredientComponent } from './ingredient/ingredient.component';
 import { StepComponent } from './step/step.component';
@@ -33,6 +34,21 @@ import { BoardAdminComponent } from './board-admin/board-admin.component';
 import { BoardModeratorComponent } from './board-moderator/board-moderator.component';
 import { BoardUserComponent } from './board-user/board-user.component';
 import { authInterceptorProviders } from './_helpers/auth.interceptor';
+import {LayoutModule} from '@angular/cdk/layout';
+import { MatCardModule} from '@angular/material/card';
+import {MatInputModule} from '@angular/material/input';
+import {MatSelectModule} from '@angular/material/select';
+import {MatChipsModule} from '@angular/material/chips';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import {OverlayModule} from '@angular/cdk/overlay';
+
+
+
+
+
+
+
+
 
 
 
@@ -57,7 +73,7 @@ import { authInterceptorProviders } from './_helpers/auth.interceptor';
     BoardAdminComponent,
     BoardModeratorComponent,
     BoardUserComponent,
-    
+    FaqComponent
 
 
   ],
@@ -80,7 +96,13 @@ import { authInterceptorProviders } from './_helpers/auth.interceptor';
     MatCheckboxModule,
     MatMenuModule,
     MatListModule,
-    
+    LayoutModule, 
+    MatCardModule,
+    MatInputModule,
+    MatSelectModule,
+    MatChipsModule,
+    MatAutocompleteModule,
+    OverlayModule
 
   ],
 

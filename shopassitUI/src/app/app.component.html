@@ -1,46 +1,40 @@
+<!DOCTYPE html>
+<head>
+  <style>
+  @import url('https://fonts.googleapis.com/css2?family=Jost:wght@100;200;300;400;500;600;700&display=swap');
+  </style>
+  </head>
 <mat-toolbar color="primary">
-  <div id="logo">
-    <!-- #docregion mat-menu-trigger-for -->
- <button mat-button [matMenuTriggerFor]="menu"> <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
-  <mat-icon>menu</mat-icon>
- </button></button>
- <!-- #enddocregion mat-menu-trigger-for -->
- <mat-menu #menu="matMenu">
-  <button mat-nav-list><a href="/list">Shopping List</a></button><br>
-  <button mat-button><a href="/recipes">recipes</a></button><br>
-  <button mat-button><a href="/faq">FAQ</a></button>
-  
- </mat-menu>
-  
-     <a href="\home">
-      <img  src="assets/images/ShopAssist.png">
-    </a>
-  
-  
-  
-  
-  
-    <!-- <span class="example-spacer"></span>
-    <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
-      <mat-icon>favorite</mat-icon>
+  <mat-toolbar-row>
+    <button mat-icon-button>
+      <mat-icon (click)="sidenav.toggle();">menu</mat-icon>
     </button>
-    <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
-      <mat-icon>share</mat-icon>
-    </button> -->
-  </div>
-  
-  <div id="login-buttons">
-    <div class="col-sm" id="new-users-button">
-      <a mat-raised-button color="primary" href="/register">New Users</a>
-    </div>
-    &nbsp;
-  
-    <div class="col-sm" id="login-button">
-      <a mat-raised-button color="primary" href="/login">Login</a>
-    </div>
-    &nbsp;
-  
-  </div>
-  
+    <h1> <a href="\home">
+      <img  src="assets/images/ShopAssist.png">
+    </a></h1>
+  <span class="example-spacer"></span>
+  <a mat-stroked-button class="button-space" href="/register">New Users</a>
+  <a mat-stroked-button class="button-space" href="/login">Login</a> 
+
+  </mat-toolbar-row>
  </mat-toolbar>
- <router-outlet></router-outlet>
+ <mat-sidenav-container color="primary">
+  <mat-sidenav #sidenav mode="push">
+    <mat-nav-list color="primary">
+      <a mat-list-item href="/home">Home</a>
+      <a mat-list-item href="/recipes">Recipes</a>
+      <a mat-list-item href="/list">Shopping List</a>
+      <a mat-list-item href="/faq">FAQ</a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+   
+    <div class="not-so-close" style="height: 88vh;"><router-outlet></router-outlet></div>
+   
+  
+  
+ </mat-sidenav-content>
+ </mat-sidenav-container>
+
+
+ 
