@@ -31,8 +31,15 @@ label {
   border-radius: 50%;
 }
 #login-button {
-  margin: 0 auto 10px;
-  display: block;
-  width: 96px;
+  text-align:center; 
+}
 
+#welcome-back-text {
+  text-align:center; 
+  color: coral;
+}
+
+#signup-text {
+  text-align:center; 
+  color: coral;
 }

@@ -29,7 +29,7 @@
     </button> -->
   </div>
 
-  <div *ngIf="isLoggedIn">
+  <!-- <div *ngIf="isLoggedIn">
   <a href="/profile" class="nav-link" routerLink="profile">{{ username }}</a>
   </div>
   
@@ -39,11 +39,11 @@
 
   <div *ngIf="isLoggedIn">
   <a href="/mod" class="nav-link" routerLink="mod">Moderator Board</a>
-  </div>
+  </div> -->
 
   <div id="login-buttons">
     <div class="col-sm" id="new-users-button">
-      <a mat-raised-button color="primary" href="/register">New Users</a>
+      <a *ngIf="!isLoggedIn" mat-raised-button color="primary" href="/register">New Users</a>
     </div>
     &nbsp;
 
