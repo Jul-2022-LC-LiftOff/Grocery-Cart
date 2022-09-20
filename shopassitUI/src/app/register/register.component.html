@@ -1,5 +1,6 @@
 <div class="col-md-12">
   <div class="card card-container">
+    <p *ngIf="!isSuccessful" id="signup-text">Please signup to get started.</p>
     <img
       id="profile-img"
       src="//ssl.gstatic.com/accounts/ui/avatar_2x.png"
@@ -80,7 +81,9 @@
       </div>
     </form>
     <div class="alert alert-success" *ngIf="isSuccessful">
-      Your registration is successful!
+      <p id="reg-text"> Your registration is successful! Please sign in.</p>
+      <div id="login-button" class="col-sm">
+        <a mat-raised-button color="primary" href="/login">Okay</a>
     </div>
   </div>
 </div>

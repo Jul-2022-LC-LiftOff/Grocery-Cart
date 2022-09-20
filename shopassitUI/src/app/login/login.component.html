@@ -1,26 +1,6 @@
-<!--<br>-->
-<!--<form id="login-form" method="post">-->
-<!--  <div class="form-group">-->
-<!--    <label>Username-->
-<!--      <input class="form-control" />-->
-<!--    </label>-->
-<!--  </div>-->
-
-<!--  <div class="form-group">-->
-<!--    <label>Password-->
-<!--      <input class="form-control"/>-->
-<!--    </label>-->
-<!--  </div>-->
-<!--  <br>-->
-
-<!--  <input type="submit" class="col-sm" value="Login" />-->
-<!--</form>-->
-<!--<br>-->
-
-<!--<p>Don't have an account? <a href="/create-user">Create an account.</a></p>-->
-
 <div class="col-md-12">
   <div class="card card-container">
+    <p id="login-text" *ngIf="!isLoggedIn" id="signup-text">Please login to get started.</p>
     <img
       id="profile-img"
       src="//ssl.gstatic.com/accounts/ui/avatar_2x.png"
@@ -67,8 +47,6 @@
           role="alert"
           *ngIf="password.errors && f.submitted"
         >
-          <!--          <div *ngIf="password.errors.required">Password is required</div>-->
-          <!--          <div *ngIf="password.errors.minlength">-->
           <div *ngIf="password.errors?.['required']">Password is required</div>
           <div *ngIf="password.errors?.['minlength']">
             Password must be at least 6 characters
@@ -94,7 +72,7 @@
       </div>
     </form>
     <div class="alert alert-success" *ngIf="isLoggedIn">
-      Logged in as {{ roles }}.
+      <p id="welcome-back-text">Welcome back!</p>
     </div>
   </div>
 </div>

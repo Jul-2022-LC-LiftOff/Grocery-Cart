@@ -13,11 +13,16 @@
   <body>
 <div class="container">
     <div class="row">
-      <div class="col-sm">
-        <a mat-raised-button color="primary" href="/recipes">Recipes</a>
-        
+      <div *ngIf="!isLoggedIn" class="col-sm">
+        <a mat-raised-button color="primary" href="/login">Recipes</a>
       </div>
-      <div class="col-sm">
+      <div *ngIf="isLoggedIn" class="col-sm">
+        <a mat-raised-button color="primary" href="/recipes">Recipes</a>
+      </div>
+      <div *ngIf="!isLoggedIn" class="col-sm">
+        <a mat-raised-button color="primary" href="/login">List</a>
+      </div>
+      <div *ngIf="isLoggedIn" class="col-sm">
         <a mat-raised-button color="primary" href="/list">List</a>
       </div>
       <div class="col-sm">

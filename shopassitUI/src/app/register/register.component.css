@@ -32,7 +32,18 @@ label {
 }
 
 #signup-button {
-  margin: 0 auto 10px;
-  display: block;
-  width: 96px;
+  text-align:center; 
+}
+
+#login-button {
+  text-align:center; 
+}
+
+#signup-text {
+  text-align:center; 
+  color: coral;
+}
+
+#reg-text {
+  text-align:center; 
 }

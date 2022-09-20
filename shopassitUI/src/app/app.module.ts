@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -20,7 +19,6 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatFormFieldModule, MAT_FORM_FIELD_DEFAULT_OPTIONS} from '@angular/material/form-field';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatSidenavModule} from '@angular/material/sidenav';
-import { CreateUserComponent } from './create-user/create-user.component';
 import { LoginComponent } from './login/login.component';
 import { ListItemComponent } from './list-item/list-item.component';
 import { DragDropModule } from '@angular/cdk/drag-drop';
@@ -49,7 +47,6 @@ import { authInterceptorProviders } from './_helpers/auth.interceptor';
     StepComponent,
     AddNewComponent,
     ImportRecipeComponent,
-    CreateUserComponent,
     LoginComponent,
     ListItemComponent,
     RegisterComponent,
@@ -57,7 +54,7 @@ import { authInterceptorProviders } from './_helpers/auth.interceptor';
     BoardAdminComponent,
     BoardModeratorComponent,
     BoardUserComponent,
-    
+
 
 
   ],
@@ -80,7 +77,7 @@ import { authInterceptorProviders } from './_helpers/auth.interceptor';
     MatCheckboxModule,
     MatMenuModule,
     MatListModule,
-    
+
 
   ],
 
