@@ -1,14 +1,29 @@
 #login-buttons {
   display: flex;
   justify-content: flex-end;
-}
-.mat-toolbar {
+ }
+ .mat-toolbar {
   display: flex;
   justify-content: space-between;
-}
-
-.example-spacer {
+ }
+  
+ .example-spacer {
   flex: 1 1 auto;
-}
-
+ }
+  
+ .button-space{
+  margin-right:10px;
+  font-family: 'Jost', sans-serif;
+  
+ }
+  
+  
+ .not-so-close{
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-right: 57px;
+  padding-left: 57px;
+  
+ }
+ 
 

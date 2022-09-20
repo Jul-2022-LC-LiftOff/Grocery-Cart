@@ -1,0 +1,24 @@
+.classy{
+    width: flex;
+    height: auto;
+    display: block;
+    margin-left:auto;
+    margin-right:auto;  
+    
+}
+
+.example-button-row  {
+    
+    margin-right:10px;
+      
+      
+  }
+
+  .grocery{
+    max-width: 60%;
+    height: auto;
+    display: block;
+    margin-left:auto;
+    margin-right:auto;  
+    
+}

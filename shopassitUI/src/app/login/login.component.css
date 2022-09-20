@@ -36,10 +36,10 @@ label {
 
 #welcome-back-text {
   text-align:center; 
-  color: coral;
+  color: "primary"
 }
 
 #signup-text {
   text-align:center; 
-  color: coral;
+  color: "primary";
 }
