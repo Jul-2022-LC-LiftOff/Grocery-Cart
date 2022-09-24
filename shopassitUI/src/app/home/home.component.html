@@ -1,17 +1,56 @@
-<html>
-  <head>
-    <meta charset="utf-8">
-    <link rel="stylesheet"
-          href="https://fonts.googleapis.com/css?family=Poppins">
-    <style>
-        body {
-        font-family: 'Poppins', san-serif;
-        font-size: 48px;
-      }
-    </style>
-  </head>
-  <body>
-<div class="container">
+<section>
+  <img class="classy" mat-card-image src="assets/images/we-assist.png">
+  </section>
+  
+  <section><img class="grocery" mat-card-image src="assets/images/app.jpeg"></section>
+  <br>
+  
+  <mat-divider></mat-divider>
+  <section>
+  <mat-grid-list cols="3" rowHeight="50px">
+    <!--grid 1--My Recipes-->
+    <mat-grid-tile>
+    <div *ngIf="!isLoggedIn">
+      <a mat-raised-button class="button-font" color="primary" href="/login">Recipes</a>
+    </div>
+    <div *ngIf="isLoggedIn">
+      <a mat-raised-button class="button-font" color="primary" href="/recipes">Recipes</a>
+    </div>
+    </mat-grid-tile>
+    <!--grid 2--My List---->
+   <mat-grid-tile>
+    <div *ngIf="!isLoggedIn">
+      <a mat-raised-button class="button-font" color="primary" href="/login">List</a>
+    </div>
+    <div *ngIf="isLoggedIn">
+      <a mat-raised-button class="button-font" color="primary" href="/list">List</a>
+    </div>
+  </mat-grid-tile>
+<!--grid 3 FAQ-->
+  <mat-grid-tile>
+      <a mat-raised-button class="button-font" color="primary" href="/faq">FAQ</a>
+  </mat-grid-tile>
+</mat-grid-list>
+</section>
+
+    <!-- </div>
+    <mat-grid-tile>
+      <a *ngIf="!isLoggedIn" mat-raised-button class="button-font" color ="primary" href="/recipes">My Recipes</a></mat-grid-tile>
+      <mat-grid-tile>
+      <a *ngIf="!isLoggedIn" mat-raised-button class="button-font" color="primary" href="/list">My List</a></mat-grid-tile>
+      <mat-grid-tile>
+      <a *ngIf="!isLoggedIn"mat-raised-button class="button-font"color="primary" href="/faq">FAQ</a>
+    </mat-grid-tile> -->
+  
+  
+
+      
+  
+ 
+  
+  
+  
+<!-- <div class="container">
     <div class="row">
       <div *ngIf="!isLoggedIn" class="col-sm">
         <a mat-raised-button color="primary" href="/login">Recipes</a>
@@ -35,4 +74,4 @@
     </div>
   </div>
 </body>
-</html>
+</html> -->

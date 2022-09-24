@@ -21,3 +21,5 @@ $my-theme: mat-light-theme($my-primary, $my-accent);
 // );
 
 // @include mat.core($my-custom-typography);
+/* Importing Bootstrap SCSS file. */
+@import '~bootstrap/scss/bootstrap';

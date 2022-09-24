@@ -6,6 +6,8 @@ import {ModalDismissReasons, NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import { RecipeService } from '../recipe.service';
 import { ListItemService } from '../list-item.service';
 
+
+
 export class Recipe {
   constructor(
     public id: number,
@@ -13,6 +15,7 @@ export class Recipe {
     public ingredients: Ingredient[],
     public steps: Step[],
     public link: string
+    
   ) {
   }
 }
@@ -33,6 +36,8 @@ export class RecipeComponent implements OnInit {
   stepsDisplay: Step[] = [];
 
   addList: string[] = [];
+
+    
 
   constructor(private httpClient: HttpClient, private modalService: NgbModal, private recipeService: RecipeService, private listItemService: ListItemService) { }
 

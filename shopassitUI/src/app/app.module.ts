@@ -31,7 +31,15 @@ import { BoardAdminComponent } from './board-admin/board-admin.component';
 import { BoardModeratorComponent } from './board-moderator/board-moderator.component';
 import { BoardUserComponent } from './board-user/board-user.component';
 import { authInterceptorProviders } from './_helpers/auth.interceptor';
-
+import {LayoutModule} from '@angular/cdk/layout';
+import { MatCardModule} from '@angular/material/card';
+import {MatInputModule} from '@angular/material/input';
+import {MatSelectModule} from '@angular/material/select';
+import {MatChipsModule} from '@angular/material/chips';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import {OverlayModule} from '@angular/cdk/overlay';
+import {MatTableModule} from '@angular/material/table';
+import {MatDialogModule} from '@angular/material/dialog';
 
 
 
@@ -77,7 +85,16 @@ import { authInterceptorProviders } from './_helpers/auth.interceptor';
     MatCheckboxModule,
     MatMenuModule,
     MatListModule,
-
+    LayoutModule,
+    MatCardModule,
+    MatInputModule,
+    MatSelectModule,
+    MatChipsModule,
+    MatAutocompleteModule,
+    OverlayModule,
+    MatTableModule,
+    MatDialogModule
+ 
 
   ],
 
