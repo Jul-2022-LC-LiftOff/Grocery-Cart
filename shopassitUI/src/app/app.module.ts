@@ -40,6 +40,11 @@ import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {OverlayModule} from '@angular/cdk/overlay';
 import {MatTableModule} from '@angular/material/table';
 import {MatDialogModule} from '@angular/material/dialog';
+import {CdkAccordionModule} from '@angular/cdk/accordion';
+import {MatExpansionModule} from '@angular/material/expansion';
+import { FaqComponent } from './faq/faq.component';
+
+
 
 
 
@@ -62,6 +67,7 @@ import {MatDialogModule} from '@angular/material/dialog';
     BoardAdminComponent,
     BoardModeratorComponent,
     BoardUserComponent,
+    FaqComponent
 
 
 
@@ -93,8 +99,9 @@ import {MatDialogModule} from '@angular/material/dialog';
     MatAutocompleteModule,
     OverlayModule,
     MatTableModule,
-    MatDialogModule
- 
+    MatDialogModule,
+    CdkAccordionModule,
+    MatExpansionModule
 
   ],
 
