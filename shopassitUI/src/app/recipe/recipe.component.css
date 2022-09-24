@@ -1,6 +1,41 @@
 .border-button {
     border-style: solid;
     border-color: black;
-    border-width: 3px;
+    border-width: 2px;
     margin: 5px;
+}
+
+table, th, td {
+    border: 1px solid #BDBDBD;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+.btn {
+   margin: 2px; 
+}
+
+tr:nth-child(even) {
+    background-color: #E0E0E0;
+}
+
+tr {
+    margin: 5px;
+}
+
+thead {
+    text-align: center;
+}
+
+.details {
+    background-color: #B2DFDB;
+}
+
+.delete {
+    background-color: #FF0000;
+    ;
+}
+
+.add {
+    background-color: #FFAB91;
 }

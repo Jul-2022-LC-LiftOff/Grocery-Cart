@@ -1,5 +1,5 @@
 
-<h1>Add Recipe</h1>
+<h1>Recipes</h1>
 <br>
 <div>
   <button mat-raised-button color="primary" class="border-button"><a class="navbar-brand" href="/add-new">New Recipe</a></button>
@@ -7,7 +7,8 @@
 </div>
 <br>
 <div class="container">
-      <thead>
+  <table>   
+    <thead>
       <tr>
         <th>Recipe Name</th>
         <th>Action</th>
@@ -17,16 +18,17 @@
       <tr *ngFor="let recipe of recipes">
         <td><span>{{recipe.name}}</span></td>
         <td>
-          <button class="btn btn-sm btn-info" (click)="openDetails(contentDetails, recipe)">
-            <i class="fa fa-search"></i>Details</button>
-            <button class="btn btn-sm btn-danger" (click)="openDelete(contentDelete, recipe)">
-            <i class="fa fa-remove"></i>Delete</button>
-          <button class="btn btn-sm btn-warning" (click)="openAdd(contentAdd, recipe)">
-            <i class="fa fa-plus"></i>Add to List</button>
+          <button class="btn details" (click)="openDetails(contentDetails, recipe)">
+            <i class="fa fa-search"></i> Details</button>
+          <button class="btn add" (click)="openAdd(contentAdd, recipe)">
+            <i class="fa fa-plus"></i> Add</button>
+          <button class="btn delete" (click)="openDelete(contentDelete, recipe)">
+            <i class="fa fa-remove"></i> Delete</button>
+          
         </td>
       </tr>
       </tbody>
-    
+    </table>
   </div>
 
   <ng-template #contentDetails let-modal>
@@ -63,7 +65,8 @@
     </div>
     <div class="modal-body">
       <h2>Are you sure you want to delete this record.</h2>
-      <div class="border text-center">
+      <div class="text-center">
+        <br>
         <button data-dismiss="modal" class="btn btn-danger" (click)="onDelete()">Yes, Delete!</button>
       </div>
     </div>
@@ -80,12 +83,12 @@
       </button>
     </div>
     <div class="modal-body">
-      <h2>Adding:</h2>
+      <h5>Are you sure you want to add the following ingredients to your list?</h5>
       <ul *ngFor="let ingredient of addList">
         <li>{{ingredient}}</li>
       </ul>
-      <div class="border text-center">
-        <button data-dismiss="modal" class="btn btn-danger" (click)="onAdd()">Yes, add to list!</button>
+      <div>
+        <button data-dismiss="modal" mat-raised-button color="primary" (click)="onAdd()">Yes, add to list!</button>
       </div>
     </div>
     <div class="modal-footer">
