@@ -38,7 +38,8 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatChipsModule} from '@angular/material/chips';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {OverlayModule} from '@angular/cdk/overlay';
-
+import {MatTableModule} from '@angular/material/table';
+import {MatDialogModule} from '@angular/material/dialog';
 
 
 
@@ -90,7 +91,9 @@ import {OverlayModule} from '@angular/cdk/overlay';
     MatSelectModule,
     MatChipsModule,
     MatAutocompleteModule,
-    OverlayModule
+    OverlayModule,
+    MatTableModule,
+    MatDialogModule
  
 
   ],
