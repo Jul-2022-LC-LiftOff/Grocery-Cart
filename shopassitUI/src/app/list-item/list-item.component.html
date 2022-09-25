@@ -18,11 +18,11 @@
         <span aria-hidden="true">&times;</span>
       </button>
     </div>
-    <form #f="ngForm" (ngSubmit)="onAddListItem(f)" novalidate>
+    <form #f="ngForm" (ngSubmit)="onAddListItem(f)" novalidate class="space">
       <div>
         <input id="listItem" name="listItem" ngModel />
       </div>
-      <div class="border text-center">
+      <div class="space">
         <button data-dismiss="modal" class="btn btn-info">Add</button>
       </div>
     </form>
@@ -36,7 +36,7 @@
     </div>
     <div class="modal-body">
       <h2>Are you sure you want to clear your list?</h2>
-      <div class="border text-center">
+      <div class="topspace text-center">
         <button data-dismiss="modal" class="btn btn-danger" (click)="onClearAll()">Yes, clear all!</button>
       </div>
     </div>

@@ -53,3 +53,11 @@
   border-width: 3px;
   margin: 5px;
 }
+
+.space {
+  margin: 10px;
+}
+
+.topspace {
+  margin-top: 25px;
+}
