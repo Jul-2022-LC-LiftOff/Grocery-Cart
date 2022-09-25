@@ -1,1 +1,3 @@
 # Grocery-Cart
+
+First, this app allows for the creation of user accounts. From there, users can manually input their favorite recipes. Once the user has saved their recipes, they can add the recipe ingredients to their grocery list. Users are also able to edit their grocery list by adding additional items (aka items that were not part of a recipe), or by deleting items they may already have in their fridge or pantry; best of all, users can drag and drop the items from their list to arrange the list however they would like. There is also an FAQ page where users can look for guidance when using the app.
