@@ -7,3 +7,10 @@
     font-family: 'Jost', sans-serif;
     justify-content: center;
   }
+
+  .mat-expansion-panel {
+    padding-top: 10px;
+    padding-bottom: 5px;
+    margin: 10px;
+    max-width: 60vw;
+  }
