@@ -39,12 +39,12 @@
         <span aria-hidden="true">&times;</span>
       </button>
     </div>
-    <form #f="ngForm" (ngSubmit)="onAddRecipeName(f)" novalidate>
+    <form #f="ngForm" (ngSubmit)="onAddRecipeName(f)" novalidate class="space">
       <label for="name">Recipe Name</label>
       <div>
         <input id="name" name="name" ngModel />
       </div>
-      <div class="border text-center">
+      <div class="space">
         <button data-dismiss="modal" class="btn btn-info">Add</button>
       </div>
     </form>
@@ -57,20 +57,20 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <form #f="ngForm" (ngSubmit)="onAddIngredient(f)" novalidate>
+      <form #f="ngForm" (ngSubmit)="onAddIngredient(f)" novalidate class="space">
         <label for="name">Amount</label>
         <div>
-          <input id="amount" name="amount" ngModel />
+          <input class="underspace" id="amount" name="amount" ngModel />
         </div>
         <label for="name">Unit</label>
         <div>
-          <input id="unit" name="unit" ngModel />
+          <input class="underspace" id="unit" name="unit" ngModel />
         </div>
         <label for="name">Ingredient</label>
         <div>
-          <input id="ingredient" name="ingredient" ngModel />
+          <input class="underspace" id="ingredient" name="ingredient" ngModel />
         </div>
-        <div class="border text-center">
+        <div class="space">
           <button data-dismiss="modal" class="btn btn-info">Add</button>
         </div>
       </form>  
@@ -83,11 +83,11 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <form #f="ngForm" (ngSubmit)="onAddStep(f)" novalidate>
+      <form #f="ngForm" (ngSubmit)="onAddStep(f)" novalidate class="space">
         <div>
           <input id="step" name="step" ngModel />
         </div>
-        <div class="border text-center">
+        <div class="space">
           <button data-dismiss="modal" class="btn btn-info">Add</button>
         </div>
       </form>

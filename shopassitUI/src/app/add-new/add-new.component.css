@@ -4,10 +4,10 @@
     margin: 5px;
 }
 
-.not-so-close{
-    padding-top: 20px;
-    padding-bottom: 20px;
-    padding-right: 57px;
-    padding-left: 57px;
-    
-   }
+.space {
+    margin: 10px;
+}
+
+.underspace {
+    margin-bottom: 15px;
+}
