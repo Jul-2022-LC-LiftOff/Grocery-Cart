@@ -1,12 +1,20 @@
 .border-button {
     border-style: solid;
-    border-color: black;
+    color: #27445c;
+    font-family: "Jost", sans-serif;
+    font-weight:600;
+    border-color: #27445c;
     border-width: 2px;
     margin: 5px;
 }
 
+thead{
+
+    height:65px;
+}
+
 table, th, td {
-    border: 1px solid #BDBDBD;
+    border: 2px solid #27445c;
     padding-left: 10px;
     padding-right: 10px;
   }
@@ -16,7 +24,11 @@ table, th, td {
 }
 
 tr:nth-child(even) {
-    background-color: #E0E0E0;
+    background-color: #82ada9;
+}
+
+tr:nth-child(odd) {
+    background-color: #e5ffff;
 }
 
 tr {
@@ -27,7 +39,7 @@ thead {
     text-align: center;
 }
 
-.details {
+/* .details {
     background-color: #B2DFDB;
 }
 
@@ -38,4 +50,76 @@ thead {
 
 .add {
     background-color: #FFAB91;
-}
+} */
+
+.button-space{
+    margin-right:10px;
+    color: #27445c;
+    font-family: 'Jost', sans-serif;
+    
+   }
+
+   .content {
+    max-width: 50vw;
+    margin: auto;
+  }
+
+  .content2{
+    justify-content: center;
+  }
+
+  .t-size{
+    width:50vw;
+  }
+
+  .td-1{
+    text-align:left;
+    vertical-align: center;
+    font-family: "Jost", sans-serif;
+    
+  }
+
+  td{
+    text-align: center;
+    vertical-align: middle;
+    height: 50px;
+
+
+  }
+
+  th{
+    vertical-align: middle;
+    text-align: center;
+    background-color:  #82ada9;
+    
+  }
+
+  .button-font{
+    font-family: "Jost", sans-serif;
+    color: #27445c
+  }
+
+ .modal-header{
+    font-family: "Jost", sans-serif;
+    color: #27445c; 
+ }
+
+ .modal-title{
+    font-family: "Jost", sans-serif;
+    color: #27445c; 
+  
+ }
+
+ .modal-body{
+    font-family: "Jost", sans-serif;
+    color: #27445c; 
+    
+ }
+
+ .warn-color {
+    background-color: #c97b63;
+ }
+
+ .grey {
+    background-color: #fafafa;
+ }

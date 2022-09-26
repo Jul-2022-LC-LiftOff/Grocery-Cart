@@ -43,6 +43,8 @@ import {MatDialogModule} from '@angular/material/dialog';
 import {CdkAccordionModule} from '@angular/cdk/accordion';
 import {MatExpansionModule} from '@angular/material/expansion';
 import { FaqComponent } from './faq/faq.component';
+import {MatTooltipModule} from '@angular/material/tooltip';
+
 
 
 
@@ -101,7 +103,8 @@ import { FaqComponent } from './faq/faq.component';
     MatTableModule,
     MatDialogModule,
     CdkAccordionModule,
-    MatExpansionModule
+    MatExpansionModule,
+    MatTooltipModule
 
   ],
 

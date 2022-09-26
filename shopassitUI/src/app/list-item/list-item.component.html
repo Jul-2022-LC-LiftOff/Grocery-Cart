@@ -1,4 +1,4 @@
-<h1>Shopping List:</h1>
+<h1 class="button-font">Shopping List:</h1>
 <br>
 <div>
     <button mat-raised-button color="primary" class="border-button"  (click)="addListItem(listContent)">Add Item</button>
@@ -7,7 +7,7 @@
 <br>
 <div>
     <div cdkDropList class="example-list" (cdkDropListDropped)="drop($event)">
-        <div class="example-box" *ngFor="let listItem of list" cdkDrag><mat-checkbox>{{listItem}}</mat-checkbox> <button (click)="onRemove(listItem)">Remove</button></div>
+        <div class="example-box" *ngFor="let listItem of list" cdkDrag><mat-checkbox>{{listItem}}</mat-checkbox> <button mat-mini-fab color="warn" (click)="onRemove(listItem)"><mat-icon>delete</mat-icon></button></div>
     </div>
 </div>
 
@@ -23,7 +23,7 @@
         <input id="listItem" name="listItem" ngModel />
       </div>
       <div class="space">
-        <button data-dismiss="modal" class="btn btn-info">Add</button>
+        <button mat-raised-button color="primary" data-dismiss="modal" class="border-button">Add</button>
       </div>
     </form>
 </ng-template>
@@ -35,9 +35,9 @@
       </button>
     </div>
     <div class="modal-body">
-      <h2>Are you sure you want to clear your list?</h2>
+      <h2 class="button-font">Are you sure you want to clear your list?</h2>
       <div class="topspace text-center">
-        <button data-dismiss="modal" class="btn btn-danger" (click)="onClearAll()">Yes, clear all!</button>
+        <button mat-raised-button color="accent" data-dismiss="modal" class="border-button" (click)="onClearAll()">Yes, clear all!</button>
       </div>
     </div>
     <div class="modal-footer">

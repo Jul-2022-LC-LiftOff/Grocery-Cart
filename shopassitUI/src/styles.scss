@@ -11,8 +11,9 @@ body {
 
 $my-primary: mat-palette($mat-teal, 100);
 $my-accent: mat-palette($mat-deep-orange, 200);
+$my-warn: mat-palette($mat-red, 300);
 
-$my-theme: mat-light-theme($my-primary, $my-accent);
+$my-theme: mat-light-theme($my-primary, $my-accent, $my-warn);
 
 @include angular-material-theme($my-theme);
 

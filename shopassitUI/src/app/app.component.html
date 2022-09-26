@@ -4,27 +4,29 @@
  @import url('https://fonts.googleapis.com/css2?family=Jost:wght@100;200;300;400;500;600;700&display=swap');
  </style>
  </head>
+ 
 <mat-toolbar color="primary">
  <mat-toolbar-row>
    <button mat-icon-button>
      <mat-icon (click)="sidenav.toggle();">menu</mat-icon>
    </button>
+  
    <h1> <a href="\home">
      <img  src="assets/images/ShopAssist.png">
    </a></h1>
  <span class="example-spacer"></span>
- <a *ngIf="!isLoggedIn" mat-stroked-button class="button-space" href="/register">New Users</a>
+ <a *ngIf="!isLoggedIn" mat-raised-button color="accent"class="button-space" href="/register">New Users</a>
  
 <div *ngIf="isLoggedIn">
    <a  mat-raised-button color="accent" href class="button-space" (click)="logout()">Logout</a>
  </div>
  
  
- <a *ngIf="!isLoggedIn" mat-stroked-button class="button-space" href="/login">Login</a>
+ <a *ngIf="!isLoggedIn" mat-raised-button color="accent" class="button-space" href="/login">Login</a>
  
  </mat-toolbar-row>
 </mat-toolbar>
-<mat-sidenav-container color="primary">
+<mat-sidenav-container class="grey" color="primary">
  <mat-sidenav #sidenav mode="push">
    <mat-nav-list color="primary">
      <a mat-list-item href="/home">Home</a>

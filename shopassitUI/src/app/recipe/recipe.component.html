@@ -1,36 +1,69 @@
 
-<h1>Recipes</h1>
+
+<section>
+<h1 class="button-font">My Recipes</h1>
+<mat-divider></mat-divider>
+</section>
 <br>
-<div>
-  <button mat-raised-button color="primary" class="border-button"><a class="navbar-brand" href="/add-new">New Recipe</a></button>
-  <button mat-raised-button color="primary" class="border-button"><a class="navbar-brand" href="/import-recipe">Import Recipe</a></button>
-</div>
+
+<section>
+  <mat-grid-list cols="4" rowHeight="50px">
+    <mat-grid-tile></mat-grid-tile>
+    <mat-grid-tile>  
+      <button mat-raised-button color="primary" class="border-button"><a class="navbar-brand" href="/add-new">New Recipe</a></button>
+    </mat-grid-tile>
+    <mat-grid-tile> 
+      <button mat-raised-button color="primary" class="border-button"><a class="navbar-brand" href="/import-recipe">Import Recipe</a></button>
+    </mat-grid-tile>
+    <mat-grid-tile></mat-grid-tile>
+  </mat-grid-list>
+</section>
 <br>
-<div class="container">
-  <table>   
-    <thead>
-      <tr>
-        <th>Recipe Name</th>
-        <th>Action</th>
+ <section class="content">
+  <table class="t-size">   
+    <thead class="td-1">
+      <tr class="td-1">
+        <th><h4>Recipe Name</h4></th>
+        <th><h4>Actions</h4></th>
       </tr>
       </thead>
       <tbody>
       <tr *ngFor="let recipe of recipes">
-        <td><span>{{recipe.name}}</span></td>
+        <td class="td-1"><span>{{recipe.name}}</span></td>
         <td>
-          <button class="btn details" (click)="openDetails(contentDetails, recipe)">
-            <i class="fa fa-search"></i> Details</button>
-          <button class="btn add" (click)="openAdd(contentAdd, recipe)">
-            <i class="fa fa-plus"></i> Add</button>
-          <button class="btn delete" (click)="openDelete(contentDelete, recipe)">
-            <i class="fa fa-remove"></i> Delete</button>
+      
+            <button mat-mini-fab color="primary" class="button-space" (click)="openDetails(contentDetails, recipe)"
+               matTooltip="Details"
+              aria-label="Button that displays a tooltip when focused or hovered over">
+              <mat-icon>search</mat-icon>
+          </button>
+          <button mat-mini-fab color="accent" class="button-space" (click)="openAdd(contentAdd, recipe)"
+              matTooltip="Add to My List"
+              aria-label="Button that displays a tooltip when focused or hovered over">
+            <mat-icon>add</mat-icon>
+            </button>
+          <button mat-mini-fab color="warn"  (click)="openDelete(contentDelete, recipe)"
+          matTooltip="delete recipe"
+          aria-label="Button that displays a tooltip when focused or hovered over">
+          <mat-icon color="">delete</mat-icon>
+        </button>
           
         </td>
       </tr>
       </tbody>
     </table>
-  </div>
-
+  </section>
+  <br>
+  <mat-divider></mat-divider>
+  <section>
+    <mat-grid-list cols="3" rowHeight="50px">
+    <mat-grid-tile></mat-grid-tile>
+   <mat-grid-tile> 
+    <a mat-raised-button class="border-button" color="accent" href="/list">My List</a>
+   </mat-grid-tile>
+   <mat-grid-tile></mat-grid-tile>
+  </mat-grid-list>
+  </section>
   <ng-template #contentDetails let-modal>
     <div class="modal-header">
       <h4 class="modal-title" id="modal-basic-title1">Recipe Details</h4>
@@ -88,12 +121,13 @@
         <li>{{ingredient}}</li>
       </ul>
       <div>
-        <button data-dismiss="modal" mat-raised-button color="primary" (click)="onAdd()">Yes, add to list!</button>
+        <button data-dismiss="modal" mat-raised-button class="warn-color" (click)="onAdd()">Yes, add to list!</button>
       </div>
     </div>
     <div class="modal-footer">
       <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Cancel</button>
     </div>
+    
   </ng-template>
 
-  
+

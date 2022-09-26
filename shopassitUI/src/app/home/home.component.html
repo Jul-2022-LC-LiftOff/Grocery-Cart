@@ -1,3 +1,4 @@
+
 <section>
   <img class="classy" mat-card-image src="assets/images/we-assist.png">
   </section>
@@ -14,7 +15,7 @@
       <a mat-raised-button class="button-font" color="primary" href="/login">Recipes</a>
     </div>
     <div *ngIf="isLoggedIn">
-      <a mat-raised-button class="button-font" color="primary" href="/recipes">Recipes</a>
+      <a mat-raised-button class="button-font" color="primary" href="/recipes">My Recipes</a>
     </div>
     </mat-grid-tile>
     <!--grid 2--My List---->
@@ -23,7 +24,7 @@
       <a mat-raised-button class="button-font" color="primary" href="/login">List</a>
     </div>
     <div *ngIf="isLoggedIn">
-      <a mat-raised-button class="button-font" color="primary" href="/list">List</a>
+      <a mat-raised-button class="button-font" color="primary" href="/list">My List</a>
     </div>
   </mat-grid-tile>
 <!--grid 3 FAQ-->
@@ -33,45 +34,4 @@
 </mat-grid-list>
 </section>
 
-    <!-- </div>
-    <mat-grid-tile>
-      <a *ngIf="!isLoggedIn" mat-raised-button class="button-font" color ="primary" href="/recipes">My Recipes</a></mat-grid-tile>
-      <mat-grid-tile>
-      <a *ngIf="!isLoggedIn" mat-raised-button class="button-font" color="primary" href="/list">My List</a></mat-grid-tile>
-      <mat-grid-tile>
-      <a *ngIf="!isLoggedIn"mat-raised-button class="button-font"color="primary" href="/faq">FAQ</a>
-    </mat-grid-tile> -->
-  
-  
-
-      
-  
- 
-  
-  
-  
-<!-- <div class="container">
-    <div class="row">
-      <div *ngIf="!isLoggedIn" class="col-sm">
-        <a mat-raised-button color="primary" href="/login">Recipes</a>
-      </div>
-      <div *ngIf="isLoggedIn" class="col-sm">
-        <a mat-raised-button color="primary" href="/recipes">Recipes</a>
-      </div>
-      <div *ngIf="!isLoggedIn" class="col-sm">
-        <a mat-raised-button color="primary" href="/login">List</a>
-      </div>
-      <div *ngIf="isLoggedIn" class="col-sm">
-        <a mat-raised-button color="primary" href="/list">List</a>
-      </div>
-      <div class="col-sm">
-        <a mat-raised-button color="primary" href="/faq">FAQ</a>
-        
-
-        
-
-      </div>
-    </div>
-  </div>
-</body>
-</html> -->
+    

@@ -1,29 +1,38 @@
+<!--Header for Title-->
+
 <div>
   <h4 class="modal-title" id="modal-basic-title">New Recipe</h4>
 </div>
 <br>
-  
+<!--Recipe Name & Save button to Create ID-->  
 <div class="form-group">
-  <p>Recipe Name: <b>{{recipeName?.name}}</b></p>
+  <p class="button-font">Recipe Name: <b class="button-font">{{recipeName?.name}}</b></p>
   <div>
-    <button mat-raised-button color="accent" (click)="addRecipeName(recipeContent)">+ Add Recipe Name</button>
+    <button class="button-font" mat-raised-button color="accent" (click)="addRecipeName(recipeContent)">+ Add Recipe Name</button>
   </div>
+
+  <!--Add Ingredients and steps! *NOTE: The submit button compiles and submits these together-->
   <br>
-  <p>Ingredients:</p>
+  <!--Ingredients with add ingredients Button-->
+  <p class="button-font">Ingredients:</p>
   <ul>
-    <li *ngFor="let ingredient of ingredients">{{ingredient.amount}} {{ingredient.unit}} {{ingredient.ingredient}} <button (click)="openRemoveIngredient(contentRemoveIngredient, ingredient)">Remove</button></li>
+    <li *ngFor="let ingredient of ingredients" class="button-font">{{ingredient.amount}} {{ingredient.unit}} {{ingredient.ingredient}} <button (click)="openRemoveIngredient(contentRemoveIngredient, ingredient)">Remove</button></li>
   </ul>
   <div>
     <button mat-raised-button color="accent" (click)="addIngredientOrStep(ingredientContent)">+ Add Ingredient</button>
   </div>
+  <!--Steps with add steps button-->
   <br>
-  <p>Steps:</p>  
+  <p class="button-font">Steps:</p>  
   <ol>
-    <li *ngFor="let step of steps">{{step.step}} <button (click)="openRemoveStep(contentRemoveStep, step)">Remove</button></li>
+    <li *ngFor="let step of steps" class="button-font">{{step.step}} <button mat-mini-fab color="warn"  (click)="openRemoveStep(contentRemoveStep, step)"><mat-icon class="material-symbols-outlined">
+      delete
+     </mat-icon></button></li>
   </ol>
   <div>
     <button mat-raised-button color="accent" (click)="addIngredientOrStep(stepContent)">+ Add Step</button>
   </div>
+  <!--Submit Button-->
   <br>
   <div>
     <button mat-raised-button color="primary" class="border-button" type="submit" (click)="onSubmit()">Submit</button>
@@ -31,7 +40,7 @@
 
 </div>
   
-  
+  <!--This is the button to close out of each of the modals (the X)-->
   <ng-template #recipeContent let-modal>
     <div class="modal-header">
       <h4 class="modal-title" id="modal-basic-title">Add Recipe:</h4>
@@ -39,17 +48,18 @@
         <span aria-hidden="true">&times;</span>
       </button>
     </div>
+    <!--Recipe Name Modal-->
     <form #f="ngForm" (ngSubmit)="onAddRecipeName(f)" novalidate class="space">
-      <label for="name">Recipe Name</label>
+      <label class="button-font" for="name">Recipe Name</label>
       <div>
         <input id="name" name="name" ngModel />
       </div>
       <div class="space">
-        <button data-dismiss="modal" mat-raised-button color="primary">Add</button>
+        <button data-dismiss="modal" mat-raised-button color="primary" class="border-button">Add</button>
       </div>
     </form>
   </ng-template>
-  
+  <!--Add ingredient Modal-->
     <ng-template #ingredientContent let-modal>
       <div class="modal-header">
         <h4 class="modal-title" id="modal-basic-title">Add Ingredient:</h4>
@@ -58,24 +68,24 @@
         </button>
       </div>
       <form #f="ngForm" (ngSubmit)="onAddIngredient(f)" novalidate class="space">
-        <label for="name">Amount</label>
+        <label for="name" class="button-font">Amount</label>
         <div>
           <input class="underspace" id="amount" name="amount" ngModel />
         </div>
-        <label for="name">Unit</label>
+        <label for="name" class="button-font">Unit</label>
         <div>
           <input class="underspace" id="unit" name="unit" ngModel />
         </div>
-        <label for="name">Ingredient</label>
+        <label for="name" class="button-font">Ingredient</label>
         <div>
           <input class="underspace" id="ingredient" name="ingredient" ngModel />
         </div>
         <div class="space">
-          <button data-dismiss="modal" mat-raised-button color="primary">Add</button>
+          <button data-dismiss="modal" mat-raised-button color="primary" class="border-button">Add</button>
         </div>
       </form>  
     </ng-template>
-  
+  <!--Add Steps Modal-->
     <ng-template #stepContent let-modal>
       <div class="modal-header">
         <h4 class="modal-title" id="modal-basic-title">Add Step:</h4>
@@ -88,11 +98,11 @@
           <input id="step" name="step" ngModel />
         </div>
         <div class="space">
-          <button data-dismiss="modal" mat-raised-button color="primary">Add</button>
+          <button data-dismiss="modal" mat-raised-button color="primary" class="border-button">Add</button>
         </div>
       </form>
     </ng-template>
-
+<!--Remove-->
     <ng-template #contentRemoveIngredient let-modal>
       <div class="modal-header">
         <h4 class="modal-title">Confirm Delete</h4>
@@ -103,7 +113,7 @@
       <div class="modal-body">
         <h6>Are you sure you want to delete this ingredient.</h6>
         <div class="border text-center">
-          <button data-dismiss="modal" class="btn btn-danger" (click)="onRemoveIngredient()">Yes, Delete!</button>
+          <button mat-raised-button color="warn" data-dismiss="modal"  (click)="onRemoveIngredient()">Yes, Delete!</button>
         </div>
       </div>
       <div class="modal-footer">

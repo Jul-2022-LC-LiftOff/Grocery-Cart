@@ -1,6 +1,9 @@
 .border-button {
+    font-family: 'Jost', sans-serif;
+    color:#27445c;
+    font-weight: 600;
     border-style: solid;
-    border-color: black;
+    border-color: #27445c;
     border-width: 2px;
     margin: 5px;
 }
@@ -12,3 +15,21 @@
 .underspace {
     margin-bottom: 15px;
 }
+
+.button-font{
+    font-family: 'Jost', sans-serif;
+  
+  }
+
+  .modal-title{
+    font-family: 'Jost', sans-serif;
+  }
+
+  .material-symbols-outlined {
+    font-variation-settings:
+    'FILL' #27445c,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 48
+  }
+ 
