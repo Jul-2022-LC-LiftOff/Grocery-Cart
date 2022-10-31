@@ -37,6 +37,4 @@ const puppeteer = require('puppeteer');
 
         });
         browser.close();
-     console.log(newPage)
-
   })();
