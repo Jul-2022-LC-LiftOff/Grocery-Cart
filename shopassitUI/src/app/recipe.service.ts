@@ -4,6 +4,7 @@ import { map, Observable } from 'rxjs';
 import { Ingredient } from './ingredient/ingredient.component';
 import { Recipe } from './recipe/recipe.component';
 import { Step } from './step/step.component';
+import { Summary } from './summary/summary.component';
 
 @Injectable({
   providedIn: 'root'
@@ -25,6 +26,11 @@ export class RecipeService {
   public getSteps(): Observable<Step[]> {
     const url = "http://localhost:8080/steps";
     return this.http.get<Step[]>(url);
+  }
+
+  public getSummaries(): Observable<Summary[]> {
+    const url ="http://localhost:8080/summary:";
+    return this.http.get<Summary[]>(url);
   }
 
   public addRecipe(recipe: Recipe): Observable<Recipe> {

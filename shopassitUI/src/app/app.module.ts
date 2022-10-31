@@ -44,6 +44,7 @@ import {CdkAccordionModule} from '@angular/cdk/accordion';
 import {MatExpansionModule} from '@angular/material/expansion';
 import { FaqComponent } from './faq/faq.component';
 import {MatTooltipModule} from '@angular/material/tooltip';
+import { SummaryComponent } from './summary/summary.component';
 
 
 
@@ -69,7 +70,8 @@ import {MatTooltipModule} from '@angular/material/tooltip';
     BoardAdminComponent,
     BoardModeratorComponent,
     BoardUserComponent,
-    FaqComponent
+    FaqComponent,
+    SummaryComponent
 
 
 

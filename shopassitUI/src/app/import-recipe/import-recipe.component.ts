@@ -7,6 +7,8 @@ import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Recipe } from '../recipe/recipe.component';
 import { RecipeService } from '../recipe.service';
+import { Summary } from '../summary/summary.component';
+
 
 @Component({
   selector: 'app-import-recipe',
@@ -22,7 +24,7 @@ export class ImportRecipeComponent implements OnInit {
   recipesFromDb: Recipe[] = []; //for getting Recipes from Db
   ingredientsFromDb: Ingredient[] = []; //for getting Ingredients from Db
   stepsFromDb: Step[] = []; //for getting Steps from Db
-
+  summaryFromDb: Summary[] = [];
   ingredientsForRecipe: Ingredient[] = []; //for adding Ingredients to Recipe
   stepsForRecipe: Step[] = []; //for adding Steps to Recipe
 
@@ -36,6 +38,12 @@ export class ImportRecipeComponent implements OnInit {
     this.getRecipes();
     this.getIngredients();
     this.getSteps();
+    this.getSummaries();
+    // this.getNutrition();
+    // this.getCalories();
+    // this.getPrepTime();
+    // this.getCookTime();
+    
   }
 
   getRecipes(){
@@ -56,6 +64,13 @@ export class ImportRecipeComponent implements OnInit {
     this.recipeService.getSteps().subscribe(response => {
         this.stepsFromDb = response;
       }
+    );
+  }
+
+  getSummaries(){
+    this.recipeService.getSummaries().subscribe(response =>{
+      this.summaryFromDb = response;
+    }
     );
   }
 

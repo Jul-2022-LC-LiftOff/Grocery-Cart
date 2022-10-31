@@ -14,7 +14,13 @@ export class Recipe {
     public name: string,
     public ingredients: Ingredient[],
     public steps: Step[],
-    public link: string
+    public summary: string,
+    public link: string,
+    public prepTime: string,
+    public cookTime: string,
+    public servings: string,
+    public calories: string,
+    public nutrition: string,
     
   ) {
   }
@@ -34,6 +40,13 @@ export class RecipeComponent implements OnInit {
   recipeNameDisplay: string | undefined;
   ingredientsDisplay: Ingredient[] = [];
   stepsDisplay: Step[] = [];
+  summaryDisplay: string | undefined;
+  prepTimeDisplay: string | undefined;
+  cookTimeDisplay: string | undefined;
+  servingsDisplay: string | undefined;
+  caloriesDisplay: string | undefined;
+  nutritionDisplay: string | undefined;
+
 
   addList: string[] = [];
 
@@ -84,6 +97,12 @@ export class RecipeComponent implements OnInit {
    this.recipeNameDisplay = recipe.name;
    this.ingredientsDisplay = recipe.ingredients;
    this.stepsDisplay = recipe.steps;
+   this.summaryDisplay = recipe.summary;
+   this.prepTimeDisplay = recipe.prepTime;
+   this.cookTimeDisplay = recipe.cookTime;
+   this.servingsDisplay = recipe.servings;
+   this.caloriesDisplay = recipe.calories;
+   this.nutritionDisplay = recipe.nutrition;
  }
 
   openDelete(targetModal: any, recipe: Recipe) {
